@@ -1,8 +1,7 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import { Github, Linkedin, ArrowDown } from "lucide-react";
-import IconSlider from "./IconSlider";
+import IconSlider from "./IconSlider"; // Apenas garantindo que a importação esteja correta
 
 export function HeroSection() {
   return (
@@ -46,8 +45,7 @@ export function HeroSection() {
           </a>
         </div>
       </div>
-      <div className="w-full max-w-4xl my-12">
-      </div>
+      {/* O container vazio foi removido para simplicidade */}
       <IconSlider/>
     </section>
   );

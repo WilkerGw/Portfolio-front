@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiTypescript } from "react-icons/si";
 
+// Array com a definição dos ícones
 const icons = [
   { id: 1, icon: <FaHtml5 size={40} />, name: "HTML5" },
   { id: 2, icon: <FaCss3Alt size={40} />, name: "CSS3" },
@@ -25,7 +26,8 @@ const icons = [
 ];
 
 const IconSlider = () => {
-  const IconBlock = ({ iconList, ...props }) => (
+  // Componente auxiliar para renderizar um bloco de ícones
+  const IconBlock = ({ iconList, ...props }: { iconList: typeof icons; [key: string]: any; }) => (
     <div className="flex-none flex items-center space-x-16 pr-16" {...props}>
       {iconList.map((item) => (
         <div key={item.id} className="flex-shrink-0">

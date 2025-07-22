@@ -1,4 +1,19 @@
-import { SiTypescript, SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiVercel, SiRender, SiCanva, SiGimp, SiGithub, SiGooglegemini, SiGit, SiWordpress } from "react-icons/si";
+import {
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiMongodb,
+  SiVercel,
+  SiRender,
+  SiCanva,
+  SiGimp,
+  SiGithub,
+  SiGooglegemini,
+  SiGit,
+  SiWordpress,
+} from "react-icons/si";
+import Image from "next/image";
 
 const skills = [
   "TypeScript",
@@ -17,41 +32,35 @@ const skills = [
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="w-full bg-green-950">
-      <div className="container grid grid-cols-1 gap-12 py-20 md:py-28 lg:grid-cols-2 lg:gap-16">
-        <div className="rounded-xl border border-white/30 bg-white/40 p-8 shadow-lg backdrop-blur-md">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Sobre Mim
-          </h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed">
-            Olá! Sou um desenvolvedor de software apaixonado por criar soluções
-            eficientes e escaláveis...
-          </p>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Busco constantemente aprender novas tecnologias e aprimorar minhas
-            habilidades...
-          </p>
-        </div>
-        <div className="rounded-xl border border-white/30 bg-white/40 p-8 shadow-lg backdrop-blur-md">
-          <h3 className="text-2xl font-bold tracking-tight">
-            Minhas Habilidades
-          </h3>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <SiTypescript size={32} title="TypeScript"/>
-            <SiReact size={32} title="React.js"/>
-            <SiNextdotjs size={32} title="Next.js"/>
-            <SiNodedotjs size={32} title="Node.js"/>
-            <SiMongodb size={32} title="MongoDb"/>
-            <SiVercel size={32} title="Vercel"/>
-            <SiRender size={32} title="Render"/>
-            <SiGooglegemini size={32} title="Gemini"/>
-            <SiCanva size={32} title="Canva"/>
-            <SiGimp size={32} title="Gimp"/>
-            <SiGithub size={32} title="GitHub"/>
-            <SiGit size={32} title="Git"/>
-            <SiWordpress size={32} title="Wordpress"/>           
+    <section id="sobre" className="w-screen h-screen bg-gradient-to-b from-black to-green-950">
+        <div className="p-8 shadow-lg backdrop-blur-md w-full h-full">
+          <div className="flex itens-center justify-center rounded-full overflow-hidden">
+            <Image
+              src="/images/wilker.png"
+              alt="avatar"
+              width={300}
+              height={300}
+              className="rounded-full"
+            ></Image>
           </div>
-        </div>
+          <p className="mt-6 text-muted-foreground leading-relaxed text-gray-500 text-center">
+            Desenvolvendo soluções web rápidas, responsivas e escaláveis.
+          </p>
+          <div className="mt-6 flex itends-center justify-center flex-wrap gap-3 text-gray-500">
+            <SiTypescript size={32} title="TypeScript" />
+            <SiReact size={32} title="React.js" />
+            <SiNextdotjs size={32} title="Next.js" />
+            <SiNodedotjs size={32} title="Node.js" />
+            <SiMongodb size={32} title="MongoDb" />
+            <SiVercel size={32} title="Vercel" />
+            <SiRender size={32} title="Render" />
+            <SiGooglegemini size={32} title="Gemini" />
+            <SiCanva size={32} title="Canva" />
+            <SiGimp size={32} title="Gimp" />
+            <SiGithub size={32} title="GitHub" />
+            <SiGit size={32} title="Git" />
+            <SiWordpress size={32} title="Wordpress" />
+          </div>
       </div>
     </section>
   );

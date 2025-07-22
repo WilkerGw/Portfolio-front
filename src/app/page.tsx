@@ -9,8 +9,7 @@ import { HeroSection } from "@/components/HeroSection";
 
 export default function Home() {
   return (
-    <div className="overflow-x-hidden">
-      <main className="w-sreen h-screen bg-green-100">
+    <div className="flex flex-col itens-center w-screen h-screen bg-black">
       <ScrollAnimationWrapper>
         <HeroSection />
       </ScrollAnimationWrapper>
@@ -27,7 +26,6 @@ export default function Home() {
       <ScrollAnimationWrapper>
         <ContactSection />
       </ScrollAnimationWrapper>
-      </main>
     </div>
   );
 }

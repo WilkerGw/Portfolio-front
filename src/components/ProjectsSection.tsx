@@ -25,10 +25,10 @@ export function ProjectsSection() {
   return (
     <section
       id="projetos"
-      className="container py-16 md:py-24"
+      className="w-screen py-16 md:py-24 bg-gradient-to-b from-green-950 to-black"
     >
       <div className="mx-auto flex max-w-xl flex-col items-center text-center">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-gray-500">
           Meus Projetos
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-400">

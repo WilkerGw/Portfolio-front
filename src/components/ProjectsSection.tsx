@@ -1,5 +1,4 @@
 import { ProjectCard } from "./ProjectCard";
-// Import the centralized project data
 import { mockProjects } from "@/data/projects";
 
 export function ProjectsSection() {
@@ -17,16 +16,16 @@ export function ProjectsSection() {
         </p>
       </div>
 
-      <div className="lg:mx-8 mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 px-4">
+      <div className="mx-auto mt-12 grid max-w-5xl gap-8 md:grid-cols-2 lg:grid-cols-3 px-4">
         {mockProjects.map((project) => (
           <ProjectCard
             key={project.slug}
-            // Add the slug prop here
             slug={project.slug}
             title={project.title}
             description={project.description}
             tags={project.tags}
-            projectUrl={project.projectUrl}
+            // A linha abaixo foi removida pois ProjectCard não usa mais esta prop
+            // projectUrl={project.projectUrl} 
             ProjectVideo={project.ProjectVideo}
           />
         ))}

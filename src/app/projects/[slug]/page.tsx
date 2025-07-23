@@ -1,35 +1,22 @@
-import { mockProjects } from "@/data/projects";
-import { notFound } from "next/navigation";
-import { ProjectDetailsClient } from "./project-details-client";
+// Versão de teste minimalista para isolar o erro.
 
-// Função que busca os dados no servidor
-const getProjectBySlug = (slug: string) => {
-  return mockProjects.find((project) => project.slug === slug);
-};
-
-// ======================= MUDANÇA AQUI =======================
-// Em vez de usar um tipo 'PageProps' separado, definimos as props diretamente.
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug);
-  if (!project) {
-    return { title: "Projeto não encontrado" };
-  }
-  return {
-    title: `${project.title} | Portfólio`,
-    description: project.description,
-  };
-}
-// =============================================================
-
-// ======================= E MUDANÇA AQUI =======================
-// A página também recebe o tipo de props diretamente.
 export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug);
-
-  if (!project) {
-    notFound();
-  }
-
-  return <ProjectDetailsClient project={project} />;
+  return (
+    <div
+      style={{
+        display: "grid",
+        placeContent: "center",
+        width: "100%",
+        height: "100vh",
+        backgroundColor: "#111",
+        color: "white",
+        fontFamily: "sans-serif",
+      }}
+    >
+      <div>
+        <h1>Página de Teste do Projeto</h1>
+        <p>O build funcionou para o slug: {params.slug}</p>
+      </div>
+    </div>
+  );
 }
-// =============================================================

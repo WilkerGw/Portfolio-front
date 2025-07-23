@@ -1,10 +1,10 @@
 import "./globals.css";
 import { AboutSection } from "@/components/AboutSection";
 import { VideoSection } from "@/components/VideoSection";
-import { ProjectsSection } from "@/components/ProjectsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { ScrollAnimationWrapper } from "../components/ScrollAnimationWrapper";
 import { HeroSection } from "@/components/HeroSection";
+import { ProjectsSection } from "@/components/ProjectsSection";
 
 
 export default function Home() {

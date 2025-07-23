@@ -34,13 +34,13 @@ export function AboutSection() {
   return (
     <section id="sobre" className="w-screen h-screen bg-gradient-to-b from-black to-green-950">
         <div className="p-8 shadow-lg backdrop-blur-md w-full h-full">
-          <div className="flex itens-center justify-center rounded-full overflow-hidden">
+          <div className="rounded-full overflow-hidden shadow shadow-green-100 lg:w-100 lg:h-100 mx-auto">
             <Image
               src="/images/wilker.png"
               alt="avatar"
               width={300}
               height={300}
-              className="rounded-full"
+              className="rounded-full w-full h-full object-cover"
             ></Image>
           </div>
           <p className="mt-6 text-muted-foreground leading-relaxed text-gray-500 text-center">

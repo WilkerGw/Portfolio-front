@@ -1,0 +1,51 @@
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiMongodb,
+  SiJavascript,
+} from "react-icons/si";
+import { IoAnalyticsSharp } from "react-icons/io5";
+import type { ElementType } from "react";
+
+export type Project = {
+  slug: string;
+  title: string;
+  description: string;
+  tags: string[];
+  projectUrl: string;
+  ProjectVideo: string;
+  repositoryUrl: string;
+};
+
+export const mockProjects: Project[] = [
+  {
+    slug: "site-institucional-oticas-vizz",
+    title: "Site Institucional com elementos dinâmicos.",
+    description:
+      "Site com call to actions, galeria de produtos e sistema de agendamento de exame.",
+    tags: ["nextjs", "typescript", "tailwindcss", "mongodb", "seo", "canva", "gimp", "vercel", "render"],
+    projectUrl: "https://oticasvizz.com.br",
+    ProjectVideo: "/videos/vizz-video.mp4",
+    repositoryUrl: "https://github.com/WilkerGw/Site-Vizz",
+  },
+  {
+    slug: "site-imobiliaria",
+    title: "Site Imobiliária",
+    description: "Site para venda e aluguel de imóveis.",
+    tags: ["nextjs", "javascript", "tailwindcss", "seo", "canva"],
+    projectUrl: "https://github.com/WilkerGw/Imobiliaria-site",
+    ProjectVideo: "/videos/imobiliaria-video.mp4",
+    repositoryUrl: "https://github.com/WilkerGw/Imobiliaria-site",
+  },
+  {
+    slug: "landing-page-bar",
+    title: "Landing Page Inauguração de Bar",
+    description:
+      "Lading page com contagem regressiva e reserva de espaço e mesas.",
+    tags: ["nextjs", "javascript", "tailwindcss", "mongodb", "seo", "canva", "gimp"],
+    projectUrl: "https://github.com/WilkerGw/Inaugura-o-Bar",
+    ProjectVideo: "/videos/bar-video.mp4",
+    repositoryUrl: "https://github.com/WilkerGw/Inaugura-o-Bar",
+  },
+];

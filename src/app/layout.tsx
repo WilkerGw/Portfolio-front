@@ -1,10 +1,18 @@
-import type { Metadata } from "next";
+"use client";
+
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Wilker Martins | Desenvolvedor Web Full-Stack",
-  description: "Criação de sites, lojas virtuais, e commerces, geração de vídeo com IA, sistemas web, e muito mais.",
-};
+import { LoadingProvider, useLoading } from "@/context/LoadingContext";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+
+// ESTA LINHA PRECISA ESTAR ATIVA
+const inter = Inter({ subsets: ["latin"] });
+
+function GlobalLoadingSpinner() {
+  const { isLoading } = useLoading();
+  return isLoading ? <LoadingSpinner /> : null;
+}
 
 export default function RootLayout({
   children,
@@ -13,8 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body>
-        {children}
+      <body className={inter.className}>
+        <LoadingProvider>
+          {children}
+          <GlobalLoadingSpinner />
+        </LoadingProvider>
       </body>
     </html>
   );

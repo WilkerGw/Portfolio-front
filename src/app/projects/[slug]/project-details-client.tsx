@@ -4,13 +4,12 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { useLoading } from "@/context/LoadingContext";
-import type { Project } from "@/data/projects"; // Importe o tipo do projeto
+import type { Project } from "@/data/projects";
+import { TechIcon } from "@/components/TechIcon"; // <-- IMPORTE O NOVO COMPONENTE
 
-// Este componente recebe os dados do projeto como props
 export function ProjectDetailsClient({ project }: { project: Project }) {
   const { setIsLoading } = useLoading();
 
-  // Desativa a animação assim que o componente é montado
   useEffect(() => {
     setIsLoading(false);
   }, [setIsLoading]);
@@ -25,11 +24,9 @@ export function ProjectDetailsClient({ project }: { project: Project }) {
           <ArrowLeft size={16} />
           Voltar
         </Link>
-
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
           {project.title}
         </h1>
-
         <div className="w-full aspect-video overflow-hidden mb-8">
           <video
             src={project.ProjectVideo}
@@ -41,16 +38,22 @@ export function ProjectDetailsClient({ project }: { project: Project }) {
           />
         </div>
 
+        {/* ===== ÁREA MODIFICADA ===== */}
         <div className="flex flex-wrap gap-2 mb-8">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium"
+              // Adicionamos flex para alinhar o ícone e o texto
+              className="inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-xs font-medium"
             >
+              {/* Renderiza o ícone correspondente à tag */}
+              <TechIcon tag={tag} className="h-4 w-4" />
+              {/* Renderiza o nome da tag */}
               {tag}
             </span>
           ))}
         </div>
+        {/* ============================= */}
 
         <div className="prose prose-invert max-w-none">
           <h2 className="text-2xl font-semibold mb-1 text-white">
@@ -58,7 +61,6 @@ export function ProjectDetailsClient({ project }: { project: Project }) {
           </h2>
           <p className="text-gray-300">{project.description}</p>
         </div>
-
         <div className="flex flex-wrap gap-4 mt-8">
           {project.projectUrl !== "#" && (
             <a

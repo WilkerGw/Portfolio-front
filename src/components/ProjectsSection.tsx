@@ -2,22 +2,28 @@ import { ProjectCard } from "./ProjectCard";
 
 const mockProjects = [
   {
-    title: "Plataforma de E-commerce",
-    description: "Uma plataforma de vendas online completa, com carrinho, checkout e painel de administração.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Firebase"],
-    projectUrl: "#",
+    title: "Site Institucional com elementos dinâmicos.",
+    description:
+      "Site com call actions, galeria de produtos e sistema de agendamento de exame.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDb, SEO"],
+    projectUrl: "https://oticasvizz.com.br",
+    ProjectVideo: "/videos/vizz-video.mp4",
   },
   {
-    title: "Sistema de Gerenciamento",
-    description: "Dashboard para gerenciamento de tarefas e equipes, com autenticação e relatórios.",
-    tags: ["React", "Node.js", "Express", "MongoDB"],
+    title: "Site Imobiliária",
+    description:
+      "Site para venda e aluguel de imóveis.",
+    tags: ["Next.js", "Tailwind", "TypeScript, SEO"],
     projectUrl: "#",
+    ProjectVideo: "/videos/imobiliaria-video.mp4",
   },
   {
-    title: "Landing Page Institucional",
-    description: "Página de apresentação para uma startup de tecnologia, focada em SEO e performance.",
-    tags: ["HTML5", "CSS3", "JavaScript", "SEO"],
+    title: "Landing Page Inauguração de Bar",
+    description:
+      "Lading page com contagem regressiva e reserva de espaço e mesas.",
+    tags: ["Next.js", "JavaScript", "SEO"],
     projectUrl: "#",
+    ProjectVideo: "/videos/bar-video.mp4",
   },
 ];
 
@@ -44,6 +50,7 @@ export function ProjectsSection() {
             description={project.description}
             tags={project.tags}
             projectUrl={project.projectUrl}
+            ProjectVideo={project.ProjectVideo}
           />
         ))}
       </div>

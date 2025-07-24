@@ -8,11 +8,11 @@ export function ProjectsSection() {
       className="w-full py-16 md:py-24 bg-gradient-to-b from-green-950 to-black"
     >
       <div className="mx-auto flex max-w-xl flex-col items-center text-center px-4">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-gray-200">
-          Meus Projetos
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-gray-500">
+          Alguns Projetos
         </h2>
         <p className="mt-4 text-slate-400">
-          Aqui estão alguns dos projetos em que trabalhei.
+          Encontrou algo similar ao que busca para o seu projeto? Entre em contato.
         </p>
       </div>
 

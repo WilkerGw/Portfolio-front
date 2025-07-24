@@ -46,7 +46,7 @@ export function AboutSection() {
           <p className="mt-6 text-muted-foreground leading-relaxed text-gray-500 text-center">
             Desenvolvendo soluções web rápidas, responsivas e escaláveis.
           </p>
-          <div className="mt-6 flex itends-center justify-center flex-wrap gap-3 text-gray-500">
+          <div className="mt-6 flex itends-center justify-center flex-wrap gap-12 text-gray-500">
             <SiTypescript size={32} title="TypeScript" />
             <SiReact size={32} title="React.js" />
             <SiNextdotjs size={32} title="Next.js" />

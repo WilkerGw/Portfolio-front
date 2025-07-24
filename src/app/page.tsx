@@ -1,11 +1,10 @@
 import "./globals.css";
 import { AboutSection } from "@/components/AboutSection";
 import { VideoSection } from "@/components/VideoSection";
-import { ContactSection } from "@/components/ContactSection";
 import { ScrollAnimationWrapper } from "../components/ScrollAnimationWrapper";
 import { HeroSection } from "@/components/HeroSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
-
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
@@ -19,12 +18,10 @@ export default function Home() {
 
       <VideoSection />
 
-      <ScrollAnimationWrapper>
-        <ProjectsSection />
-      </ScrollAnimationWrapper>
+      <ProjectsSection />
 
       <ScrollAnimationWrapper>
-        <ContactSection />
+        <ContactSection/>
       </ScrollAnimationWrapper>
     </div>
   );

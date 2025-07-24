@@ -15,7 +15,7 @@ export type Project = {
 export const mockProjects: Project[] = [
   {
     slug: "site-institucional-oticas-vizz",
-    title: "Site Institucional com elementos dinâmicos.",
+    title: "Site Ótica.",
     description:
       "Site com call to actions, galeria de produtos e sistema de agendamento de exame.",
     tags: [
@@ -36,17 +36,17 @@ export const mockProjects: Project[] = [
   {
     slug: "site-imobiliaria",
     title: "Site Imobiliária",
-    description: "Site para venda e aluguel de imóveis.",
-    tags: ["nextjs", "javascript", "tailwindcss", "seo", "canva"],
+    description: "Site para venda e aluguel de imóveis com filtro de preço e metros quadrados.",
+    tags: ["nextjs", "javascript", "tailwindcss", "seo", "canva","vercel",],
     projectUrl: "https://github.com/WilkerGw/Imobiliaria-site",
     ProjectVideo: "/videos/imobiliaria-video.mp4",
     repositoryUrl: "https://github.com/WilkerGw/Imobiliaria-site",
   },
   {
     slug: "landing-page-bar",
-    title: "Landing Page Inauguração de Bar",
+    title: "Landing Page Bar",
     description:
-      "Lading page com contagem regressiva e reserva de espaço e mesas.",
+      "Lading page com contagem regressiva para o dia da inauguração e reserva de espaço com mesas e cadeiras.",
     tags: [
       "nextjs",
       "javascript",
@@ -55,6 +55,8 @@ export const mockProjects: Project[] = [
       "seo",
       "canva",
       "gimp",
+      "vercel",
+      "render",
     ],
     projectUrl: "https://github.com/WilkerGw/Inaugura-o-Bar",
     ProjectVideo: "/videos/bar-video.mp4",

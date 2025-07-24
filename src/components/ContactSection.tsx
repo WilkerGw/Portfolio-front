@@ -1,18 +1,32 @@
-export function ContactSection() {
+import React from "react";
+import {
+  PiInstagramLogoFill,
+  PiWhatsappLogoFill,
+  PiLinkedinLogoFill,
+} from "react-icons/pi";
+import Link from "next/link";
+
+const ContactSection = () => {
   return (
-    <section id="contato" className="bg-background">
-      <div className="container flex flex-col items-center gap-6 py-20 text-center md:py-28">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Vamos Conversar</h2>
-        <p className="max-w-xl text-muted-foreground">
-          Estou sempre aberto a novas oportunidades e colaborações. Se você tem um projeto em mente ou apenas quer dizer olá, meu inbox está sempre aberto.
-        </p>
-        <a
-          href="mailto:seu-email@exemplo.com"
-          className="inline-flex h-12 items-center justify-center rounded-md bg-gradient-to-r from-primary to-accent px-10 text-sm font-bold text-primary-foreground shadow-lg transition-transform hover:scale-105"
-        >
-          Enviar E-mail
-        </a>
+    <section className="flex flex-col items-center justify-center w-full h-full gap-8 py-20">
+      <h1 className="text-3xl font-bold tracking-tight md:text-4xl text-gray-500">
+        Fale comigo!
+      </h1>
+      <div className="flex itens-center justify-evenly p-2 rounded-l-4xl rounded-r-4xl shadow shadow-green-100/20 text-gray-500 w-100">
+        <Link href="https://www.instagram.com/dev.wilker/" target="_blank">
+          <PiInstagramLogoFill size={30} className="cursor-pointer" />
+        </Link>
+        <Link href="https://wa.me/5534993210534" target="_blank">
+          <PiWhatsappLogoFill size={30} className="cursor-pointer" />
+        </Link>
+        <Link
+          href="https://www.linkedin.com/in/wilker-martins-22238a370/"
+          target="_blank">
+          <PiLinkedinLogoFill size={30} className="cursor-pointer" />
+        </Link>
       </div>
     </section>
   );
-}
+};
+
+export default ContactSection;

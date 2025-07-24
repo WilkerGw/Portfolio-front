@@ -30,7 +30,7 @@ export function ProjectCard({
     <Link
       href={`/projects/${slug}`}
       onClick={handleCardClick}
-      className="group flex flex-col overflow-hidden rounded-xl border border-white/30 bg-white/10 shadow-lg backdrop-blur-md transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-primary/20"
+      className="group flex flex-col overflow-hidden rounded-xl bg-white/10 shadow-lg backdrop-blur-md transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-primary/20"
     >
       <div className="overflow-hidden">
         <video
@@ -42,7 +42,7 @@ export function ProjectCard({
           className="w-full h-auto object-cover aspect-video"
         ></video>
       </div>
-      <div className="flex flex-1 flex-col p-4 md:p-6 text-white">
+      <div className="flex flex-1 flex-col p-4 md:p-6 text-white bg-gradient-to-b from-green-950 to-black">
         <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
         <p className="mt-2 flex-1 text-sm text-gray-300">{description}</p>
         
@@ -54,15 +54,15 @@ export function ProjectCard({
               className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-gray-50"
             >
               {/* Adiciona o ícone antes do texto */}
-              <TechIcon tag={tag} className="h-3 w-3" />
+              <TechIcon tag={tag} className="h-5 w-5" />
             </span>
           ))}
         </div>
         {/* ============================= */}
 
       </div>
-      <div className="mt-auto border-t border-white/30 p-4 text-sm font-medium text-primary group-hover:underline md:p-6">
-        <div className="inline-flex items-center">
+      <div className="mt-auto p-4 text-sm font-medium text-primary group-hover:underline md:p-6 bg-black">
+        <div className="inline-flex items-center text-gray-50">
           Ver detalhes
           <ArrowUpRight className="ml-1 h-4 w-4" />
         </div>

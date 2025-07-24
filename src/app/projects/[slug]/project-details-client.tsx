@@ -44,10 +44,10 @@ export function ProjectDetailsClient({ project }: { project: Project }) {
             <span
               key={tag}
               // Adicionamos flex para alinhar o ícone e o texto
-              className="inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-xs font-medium"
+              className="inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-xs lg:text-base font-medium"
             >
               {/* Renderiza o ícone correspondente à tag */}
-              <TechIcon tag={tag} className="h-4 w-4" />
+              <TechIcon tag={tag} className="h-4 w-4 lg:h-8 lg:w-8" />
               {/* Renderiza o nome da tag */}
               {tag}
             </span>
@@ -61,13 +61,13 @@ export function ProjectDetailsClient({ project }: { project: Project }) {
           </h2>
           <p className="text-gray-300">{project.description}</p>
         </div>
-        <div className="flex flex-wrap gap-4 mt-8">
+        <div className="flex flex-wrap justify-between gap-4 mt-8">
           {project.projectUrl !== "#" && (
             <a
               href={project.projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 font-semibold text-white rounded-lg bg-gradient-to-r from-green-500 to-green-800 hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 px-4 py-2 font-semibold text-white rounded-lg shadow shadow-green-100/20 bg-background/50 hover:opacity-90 transition-opacity"
             >
               Ver ao vivo
             </a>
@@ -77,7 +77,7 @@ export function ProjectDetailsClient({ project }: { project: Project }) {
               href={project.repositoryUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 font-semibold text-white rounded-lg bg-gradient-to-r from-gray-600 to-gray-800 hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 px-4 py-2 font-semibold text-white rounded-lg shadow shadow-green-100/20 bg-background/50 hover:opacity-90 transition-opacity"
             >
               Repositório
             </a>

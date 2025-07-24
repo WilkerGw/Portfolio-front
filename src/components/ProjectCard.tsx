@@ -55,7 +55,6 @@ export function ProjectCard({
             >
               {/* Adiciona o ícone antes do texto */}
               <TechIcon tag={tag} className="h-3 w-3" />
-              {tag}
             </span>
           ))}
         </div>

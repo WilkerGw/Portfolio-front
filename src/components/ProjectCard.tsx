@@ -3,9 +3,8 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useLoading } from "@/context/LoadingContext";
+import { TechIcon } from "./TechIcon"; // <-- IMPORTE O TechIcon
 
-// Defina os props que o ProjectCard REALMENTE precisa.
-// 'repositoryUrl' não é necessário aqui.
 type ProjectCardProps = {
   slug: string;
   title: string;
@@ -46,16 +45,22 @@ export function ProjectCard({
       <div className="flex flex-1 flex-col p-4 md:p-6 text-white">
         <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
         <p className="mt-2 flex-1 text-sm text-gray-300">{description}</p>
+        
+        {/* ===== ÁREA MODIFICADA ===== */}
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-gray-50"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-gray-50"
             >
+              {/* Adiciona o ícone antes do texto */}
+              <TechIcon tag={tag} className="h-3 w-3" />
               {tag}
             </span>
           ))}
         </div>
+        {/* ============================= */}
+
       </div>
       <div className="mt-auto border-t border-white/30 p-4 text-sm font-medium text-primary group-hover:underline md:p-6">
         <div className="inline-flex items-center">

@@ -1,34 +1,10 @@
-// Remova todas as importações de 'react-icons' e 'react' deste arquivo.
-// Elas não são mais necessárias aqui.
-
-export type Project = {
-  slug: string;
-  title: string;
-  description: string;
-  tags: string[];
-  projectUrl: string;
-  ProjectVideo: string;
-  repositoryUrl: string;
-};
-
-// A lista de projetos continua igual, mas o arquivo fica mais limpo.
 export const mockProjects: Project[] = [
   {
     slug: "site-institucional-oticas-vizz",
     title: "Site Institucional com elementos dinâmicos.",
     description:
       "Site com call to actions, galeria de produtos e sistema de agendamento de exame.",
-    tags: [
-      "nextjs",
-      "typescript",
-      "tailwindcss",
-      "mongodb",
-      "seo",
-      "canva",
-      "gimp",
-      "vercel",
-      "render",
-    ],
+    tags: ["nextjs", "typescript", "tailwindcss", "mongodb", "seo", "canva", "gimp", "vercel", "render"],
     projectUrl: "https://oticasvizz.com.br",
     ProjectVideo: "/videos/vizz-video.mp4",
     repositoryUrl: "https://github.com/WilkerGw/Site-Vizz",
@@ -47,15 +23,7 @@ export const mockProjects: Project[] = [
     title: "Landing Page Inauguração de Bar",
     description:
       "Lading page com contagem regressiva e reserva de espaço e mesas.",
-    tags: [
-      "nextjs",
-      "javascript",
-      "tailwindcss",
-      "mongodb",
-      "seo",
-      "canva",
-      "gimp",
-    ],
+    tags: ["nextjs", "javascript", "tailwindcss", "mongodb", "seo", "canva", "gimp"],
     projectUrl: "https://github.com/WilkerGw/Inaugura-o-Bar",
     ProjectVideo: "/videos/bar-video.mp4",
     repositoryUrl: "https://github.com/WilkerGw/Inaugura-o-Bar",

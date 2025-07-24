@@ -4,36 +4,40 @@ import {
   SiTailwindcss,
   SiMongodb,
   SiJavascript,
+  SiVercel,       // <-- Ícone adicionado
+  SiRender,       // <-- Ícone adicionado
+  SiCanva,        // <-- Ícone adicionado
+  SiGimp,         // <-- Ícone adicionado
 } from "react-icons/si";
-import { IoAnalyticsSharp } from "react-icons/io5"; // Ícone para SEO
+import { IoAnalyticsSharp } from "react-icons/io5";
 import { IconType } from "react-icons";
 
-// Criamos um mapa (dicionário) que associa o nome da tecnologia ao componente do ícone
+// ATUALIZADO: As chaves agora são minúsculas para corresponder aos seus dados
 const ICONS: { [key: string]: IconType } = {
-  "Next.js": SiNextdotjs,
-  TypeScript: SiTypescript,
-  "Tailwind CSS": SiTailwindcss,
-  MongoDb: SiMongodb,
-  JavaScript: SiJavascript,
-  SEO: IoAnalyticsSharp,
-  // Adicione outros ícones aqui conforme precisar
+  nextjs: SiNextdotjs,
+  typescript: SiTypescript,
+  tailwindcss: SiTailwindcss,
+  mongodb: SiMongodb,
+  javascript: SiJavascript,
+  seo: IoAnalyticsSharp,
+  vercel: SiVercel,       // <-- Ícone adicionado
+  render: SiRender,       // <-- Ícone adicionado
+  canva: SiCanva,        // <-- Ícone adicionado
+  gimp: SiGimp,          // <-- Ícone adicionado
 };
 
-// Props que nosso componente vai receber
 type TechIconProps = {
-  tag: string; // O nome da tecnologia, ex: "Next.js"
+  tag: string;
   className?: string;
 };
 
 export function TechIcon({ tag, className }: TechIconProps) {
-  // Procuramos o ícone correspondente no nosso mapa
+  // A busca agora funcionará porque as chaves correspondem às tags
   const IconComponent = ICONS[tag];
 
-  // Se não encontrarmos um ícone para a tag, não renderizamos nada
   if (!IconComponent) {
-    return null;
+    return null; // Não renderiza nada se não encontrar o ícone
   }
 
-  // Se encontrarmos, renderizamos o componente do ícone com as classes de estilo
   return <IconComponent className={className} />;
 }

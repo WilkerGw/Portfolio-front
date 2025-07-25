@@ -1,10 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Se você tiver alguma configuração customizada (ex: para imagens),
-  // ela deve vir aqui dentro. Por exemplo:
-  // images: {
-  //   remotePatterns: [],
-  // },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lmkyii2kcbi12kxo.public.blob.vercel-storage.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

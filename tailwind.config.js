@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // REMOVA A LINHA 'special-gothic' DESTA SEÇÃO
+        sans: ["var(--font-inter)"], // Mantenha a fonte padrão, se estiver usando
+      },
       keyframes: {
         "infinite-scroll": {
           from: { transform: "translateX(0)" },
@@ -17,9 +21,9 @@ module.exports = {
         "infinite-scroll": "infinite-scroll 40s linear infinite",
       },
       backgroundImage: {
-        'hero-mobile': "url('/images/bg-mobile.png')",
-        'hero-tablet': "url('/images/bg-tablet.png')",
-        'hero-desktop': "url('/images/bg-desktop.png')",
+        "hero-mobile": "url('/images/bg-mobile.png')",
+        "hero-tablet": "url('/images/bg-tablet.png')",
+        "hero-desktop": "url('/images/bg-desktop.png')",
       },
     },
   },

@@ -12,3 +12,10 @@ html {
 body{
     background-color: black;
 }
+
+/* ADICIONE ESTE BLOCO NO FINAL */
+@layer utilities {
+  .font-special-gothic {
+    font-family: "Special Gothic Expanded One", sans-serif;
+  }
+}

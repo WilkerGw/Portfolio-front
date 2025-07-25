@@ -1,0 +1,19 @@
+About imagens
+
+Wilker:
+https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/wilker.png
+
+
+Backgrounds:
+
+bg-desktop:
+https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-desktop.png
+
+bg-tablet:
+https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-mobile.png
+
+
+bg-mobile:
+https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-tablet.png
+
+

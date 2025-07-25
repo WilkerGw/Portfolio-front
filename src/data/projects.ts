@@ -30,7 +30,7 @@ export const mockProjects: Project[] = [
       "render",
     ],
     projectUrl: "https://oticasvizz.com.br",
-    ProjectVideo: "/videos/vizz-video.mp4",
+    ProjectVideo: "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/vizz-video.mp4",
     repositoryUrl: "https://github.com/WilkerGw/Site-Vizz",
   },
   {
@@ -39,7 +39,7 @@ export const mockProjects: Project[] = [
     description: "Site para venda e aluguel de imóveis com filtro de preço e metros quadrados.",
     tags: ["nextjs", "javascript", "tailwindcss", "seo", "canva","vercel",],
     projectUrl: "https://github.com/WilkerGw/Imobiliaria-site",
-    ProjectVideo: "/videos/imobiliaria-video.mp4",
+    ProjectVideo: "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/imobiliaria-video-huBKDcqtDMt6AWoTbut7yF8nLScwFh.mp4",
     repositoryUrl: "https://github.com/WilkerGw/Imobiliaria-site",
   },
   {
@@ -59,7 +59,7 @@ export const mockProjects: Project[] = [
       "render",
     ],
     projectUrl: "https://github.com/WilkerGw/Inaugura-o-Bar",
-    ProjectVideo: "/videos/bar-video.mp4",
+    ProjectVideo: "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bar-video.mp4",
     repositoryUrl: "https://github.com/WilkerGw/Inaugura-o-Bar",
   },
 ];

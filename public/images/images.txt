@@ -1,19 +1,18 @@
 About imagens
 
 Wilker:
-https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/wilker.png
+https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/wilker-A4Or5WDZVrH2NuX1BtMjQ60P3NYqZy.WebP
 
 
 Backgrounds:
 
 bg-desktop:
-https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-desktop.png
+https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-desktop-kD1k2Pt2kVdrR6KVHWpyOciEBseF9S.WebP
 
 bg-tablet:
-https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-mobile.png
-
+https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-tablet-QgRYdbWfqpTZShtSl7xVO4cdMeNyb7.WebP
 
 bg-mobile:
-https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-tablet.png
+https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-mobile-VsdcgLFCNwqNmehsYjGkfzQzEM3E5W.WebP
 
 

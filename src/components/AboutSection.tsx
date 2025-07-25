@@ -39,7 +39,7 @@ export function AboutSection() {
       <div className="p-8 shadow-lg backdrop-blur-md w-full h-full">
         <div className="rounded-full overflow-hidden shadow shadow-green-100 lg:w-100 lg:h-100 mx-auto">
           <Image
-            src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/wilker.png"
+            src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/wilker-A4Or5WDZVrH2NuX1BtMjQ60P3NYqZy.WebP"
             alt="avatar"
             width={300}
             height={300}

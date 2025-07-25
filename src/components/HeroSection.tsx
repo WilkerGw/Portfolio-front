@@ -15,7 +15,7 @@ export function HeroSection() {
           backgroundImage:
             "linear-gradient(to bottom, rgba(5, 46, 22, 0.75), black), " +
             // Caminho atualizado para a URL do Vercel Blob
-            "url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-mobile.png')",
+            "url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-mobile-VsdcgLFCNwqNmehsYjGkfzQzEM3E5W.WebP')",
         }}
       ></div>
 
@@ -26,7 +26,7 @@ export function HeroSection() {
           backgroundImage:
             "linear-gradient(to bottom, rgba(5, 46, 22, 0.75), black), " +
             // Caminho atualizado para a URL do Vercel Blob
-            "url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-tablet.png')",
+            "url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-tablet-QgRYdbWfqpTZShtSl7xVO4cdMeNyb7.WebP')",
         }}
       ></div>
 
@@ -37,7 +37,7 @@ export function HeroSection() {
           backgroundImage:
             "linear-gradient(to bottom, rgba(5, 46, 22, 0.75), black), " +
             // Caminho atualizado para a URL do Vercel Blob
-            "url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-desktop.png')",
+            "url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-desktop-kD1k2Pt2kVdrR6KVHWpyOciEBseF9S.WebP')",
         }}
       ></div>
 

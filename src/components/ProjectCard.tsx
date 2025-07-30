@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useLoading } from "@/context/LoadingContext";
 import { TechIcon } from "./TechIcon";
-import { ScrollAnimationWrapper } from "../components/ScrollAnimationWrapper";
 import { CiCirclePlus } from "react-icons/ci";
 
 type ProjectCardProps = {
@@ -28,7 +27,6 @@ export function ProjectCard({
   };
 
   return (
-    <ScrollAnimationWrapper>
       <Link
         href={`/projects/${slug}`}
         onClick={handleCardClick}
@@ -46,7 +44,7 @@ export function ProjectCard({
         </div>
         <div className="flex flex-1 flex-col p-4 md:p-6 text-white bg-gradient-to-b from-green-950 to-black">
           <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
-          <p className="mt-2 flex-1 text-sm text-gray-300">{description}</p>
+          <p className="mt-2 flex-1 text-sm text-gray-600">{description}</p>
 
           <div className="mt-4 flex flex-wrap gap-2">
             {tags.map((tag) => (
@@ -66,6 +64,5 @@ export function ProjectCard({
           </div>
         </div>
       </Link>
-    </ScrollAnimationWrapper>
   );
 }

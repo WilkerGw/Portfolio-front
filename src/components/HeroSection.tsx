@@ -1,101 +1,138 @@
-import Image from "next/image";
+'use client';
+
 import Link from "next/link";
 import { Github, Linkedin } from "lucide-react";
 import IconCarousel from "./IconCarousel";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import { GrProjects } from "react-icons/gr";
+import { motion } from "framer-motion";
+
+// As variantes de animação permanecem as mesmas
+const buttonContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.4,
+    },
+  },
+};
+
+const buttonItemVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { type: "spring", stiffness: 120 },
+  },
+};
 
 export function HeroSection() {
   return (
-    <section className="relative w-screen h-screen flex flex-col justify-center items-center overflow-hidden bg-green-950 pb-18 pt-10 md:py-4">
-      {/* BG para mobile */}
+    <section className="relative w-screen h-screen flex flex-col justify-center items-center lg:justify-start lg:items-start overflow-hidden bg-green-950">
+      {/* Backgrounds (sem alteração) */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat block md:hidden"
         style={{
           backgroundImage:
-            "linear-gradient(to bottom, rgba(5, 46, 22, 0.75), black), " +
-            // Caminho atualizado para a URL do Vercel Blob
-            "url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-mobile-VsdcgLFCNwqNmehsYjGkfzQzEM3E5W.WebP')",
+            "linear-gradient(to bottom, rgba(5, 46, 22, 0.75), black), url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-mobile-VsdcgLFCNwqNmehsYjGkfzQzEM3E5W.WebP')",
         }}
       ></div>
-
-      {/* BG para tablet */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block lg:hidden"
         style={{
           backgroundImage:
-            "linear-gradient(to bottom, rgba(5, 46, 22, 0.75), black), " +
-            // Caminho atualizado para a URL do Vercel Blob
-            "url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-tablet-QgRYdbWfqpTZShtSl7xVO4cdMeNyb7.WebP')",
+            "linear-gradient(to bottom, rgba(5, 46, 22, 0.75), black), url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-tablet-QgRYdbWfqpTZShtSl7xVO4cdMeNyb7.WebP')",
         }}
       ></div>
-
-      {/* BG para desktop */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden lg:block"
         style={{
           backgroundImage:
-            "linear-gradient(to bottom, rgba(5, 46, 22, 0.75), black), " +
-            // Caminho atualizado para a URL do Vercel Blob
-            "url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-desktop-kD1k2Pt2kVdrR6KVHWpyOciEBseF9S.WebP')",
+            "linear-gradient(to bottom, rgba(5, 46, 22, 0.75), black), url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-desktop-kD1k2Pt2kVdrR6KVHWpyOciEBseF9S.WebP')",
         }}
       ></div>
 
-      {/* Conteúdo acima do background */}
-      <div className="relative z-10 flex flex-col justify-between items-start py-1 h-full w-full my-20 lg:my-5 lg:ml-25">
-        <div className="flex max-w-3xl flex-col items-center lg:items-start gap-2 text-center">
-          <div>
-            <h1 className="text-3xl lg:text-5xl text-gray-300 animate-infinite-scroll md:text-6xl lg:text-start font-special-gothic">
-              WILKER MARTINS DESENVOLVEDOR WEB{" "}
+      <div className="z-10 flex flex-col w-full px-4 lg:pt-10 lg:px-7">
+        <div className="flex w-full px-4 max-w-3xl flex-col items-center justify-start text-center lg:items-start lg:text-start gap-2">
+          
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-5xl text-gray-300 font-special-gothic">
+              WILKER MARTINS DESENVOLVEDOR WEB
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground md:text-2xl text-gray-500/50 lg:text-start">
+            <p className="mt-4 text-base md:text-lg lg:text-xl text-muted-foreground text-gray-400">
               Desenvolvimento de Websites e Aplicações Web.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="flex items-center gap-4 mt-16">
-            <div className="flex flex-col gap-4">
+          <motion.div
+            className="flex flex-wrap justify-center items-center gap-4 mt-8 lg:mt-16 lg:justify-start"
+            variants={buttonContainerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {/* MUDANÇA: Aplicando a classe 'aurora-button' */}
+            <motion.div variants={buttonItemVariants}>
               <Link
                 href="#projetos"
-                className="group inline-flex h-11 items-center justify-center bg-primary rounded-md px-6 text-sm font-semibold text-gray-500 shadow shadow-green-100/20 transition-colors hover:bg-primary/90"
+                className="aurora-button group inline-flex h-11 items-center justify-center rounded-md px-6 text-sm font-semibold text-gray-100 shadow-lg shadow-green-900/50"
               >
                 Projetos
                 <GrProjects size={15} className="m-2" />
               </Link>
-              
+            </motion.div>
+            
+            <motion.div variants={buttonItemVariants}>
               <a
                 href="/WilkerMartins_Curriculo.pdf"
                 download="WilkerMartins_Curriculo.pdf"
-                className="group inline-flex h-11 items-center justify-center bg-primary rounded-md px-6 text-sm font-semibold text-gray-500 shadow shadow-green-100/20 transition-colors hover:bg-primary/90"
+                className="aurora-button group inline-flex h-11 items-center justify-center rounded-md px-6 text-sm font-semibold text-gray-100 shadow-lg shadow-green-900/50"
               >
                 Currículo
                 <FaCloudDownloadAlt size={20} className="m-2" />
               </a>
-            </div>
-            <div className="flex flex-col items-center gap-4">
+            </motion.div>
+            
+            {/* MUDANÇA: A animação 'aurora-button' é o próprio fundo! */}
+            <motion.div variants={buttonItemVariants}>
               <a
                 href="https://github.com/WilkerGw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-md shadow shadow-green-100/20 bg-background/50 text-white-100/20"
+                className="aurora-button inline-flex h-11 w-11 items-center justify-center rounded-md shadow-lg shadow-green-900/50"
                 aria-label="GitHub"
               >
-                <Github className="h-5 w-5 text-gray-500" />
+                <Github className="h-5 w-5 text-gray-200" />
               </a>
+            </motion.div>
+            
+            <motion.div variants={buttonItemVariants}>
               <a
                 href="https://www.linkedin.com/in/wilker-martins-22238a370/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-md shadow shadow-green-100/20 bg-background/50 text-green-100"
+                className="aurora-button inline-flex h-11 w-11 items-center justify-center rounded-md shadow-lg shadow-green-900/50"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5 text-gray-500" />
+                <Linkedin className="h-5 w-5 text-gray-200" />
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-      <IconCarousel />
+      
+      <motion.div
+        className="absolute bottom-0 w-full"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 1.0 }}
+      >
+        <IconCarousel />
+      </motion.div>
     </section>
   );
 }

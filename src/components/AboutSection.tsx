@@ -1,3 +1,5 @@
+'use client'; // 👈 PASSO 1: Adicione esta linha no topo do arquivo
+
 import {
   SiTypescript,
   SiReact,
@@ -12,58 +14,105 @@ import {
   SiGooglegemini,
   SiGit,
   SiWordpress,
+  SiTailwindcss,
+  SiFirebase,
+  SiDocker,
+  SiPrisma,
+  SiPostgresql,
 } from "react-icons/si";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
-const skills = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Tailwind CSS",
-  "Firebase",
-  "Git",
-  "Docker",
-  "PostgreSQL",
-  "MongoDB",
-  "Prisma",
-  "Jest",
+const icons = [
+  { component: SiTypescript, title: "TypeScript" },
+  { component: SiReact, title: "React" },
+  { component: SiNextdotjs, title: "Next.js" },
+  { component: SiNodedotjs, title: "Node.js" },
+  { component: SiTailwindcss, title: "Tailwind CSS" },
+  { component: SiFirebase, title: "Firebase" },
+  { component: SiDocker, title: "Docker" },
+  { component: SiPostgresql, title: "PostgreSQL" },
+  { component: SiMongodb, title: "MongoDB" },
+  { component: SiPrisma, title: "Prisma" },
+  { component: SiVercel, title: "Vercel" },
+  { component: SiRender, title: "Render" },
+  { component: SiGooglegemini, title: "Gemini" },
+  { component: SiGit, title: "Git" },
+  { component: SiGithub, title: "GitHub" },
+  { component: SiWordpress, title: "Wordpress" },
+  { component: SiCanva, title: "Canva" },
+  { component: SiGimp, title: "Gimp" },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const iconVariants = {
+  hidden: { x: -20, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+    },
+  },
+};
 
 export function AboutSection() {
   return (
     <section
       id="sobre"
-      className="w-screen h-screen bg-gradient-to-b from-black to-green-950"
+      className="w-screen min-h-screen py-16 bg-gradient-to-b from-black to-green-950 flex items-center justify-center"
     >
-      <div className="p-8 shadow-lg backdrop-blur-md w-full h-full">
-        <div className="rounded-full overflow-hidden shadow shadow-green-100 lg:w-100 lg:h-100 mx-auto">
+      <div className="p-8 w-full max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="rounded-full overflow-hidden shadow shadow-green-100 w-48 h-48 lg:w-64 lg:h-64 mx-auto"
+        >
           <Image
             src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/wilker-A4Or5WDZVrH2NuX1BtMjQ60P3NYqZy.WebP"
             alt="avatar"
             width={300}
             height={300}
             className="rounded-full w-full h-full object-cover"
-          ></Image>
-        </div>
-        <p className="mt-6 text-muted-foreground leading-relaxed text-gray-500 text-center">
+          />
+        </motion.div>
+
+        <p className="mt-8 text-muted-foreground leading-relaxed text-gray-400 text-center text-lg md:text-xl">
           Desenvolvendo soluções web rápidas, responsivas e escaláveis.
         </p>
-        <div className="mt-6 flex itends-center justify-center flex-wrap gap-12 text-gray-500">
-          <SiTypescript size={32} title="TypeScript" />
-          <SiReact size={32} title="React.js" />
-          <SiNextdotjs size={32} title="Next.js" />
-          <SiNodedotjs size={32} title="Node.js" />
-          <SiMongodb size={32} title="MongoDb" />
-          <SiVercel size={32} title="Vercel" />
-          <SiRender size={32} title="Render" />
-          <SiGooglegemini size={32} title="Gemini" />
-          <SiCanva size={32} title="Canva" />
-          <SiGimp size={32} title="Gimp" />
-          <SiGithub size={32} title="GitHub" />
-          <SiGit size={32} title="Git" />
-          <SiWordpress size={32} title="Wordpress" />
-        </div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mt-12 flex items-center justify-center flex-wrap gap-8 md:gap-12 text-gray-400"
+        >
+          {icons.map((icon, index) => {
+            const IconComponent = icon.component;
+            return (
+              <motion.div key={index} variants={iconVariants}>
+                <IconComponent
+                  size={32}
+                  title={icon.title}
+                  className="hover:text-green-400 hover:scale-110 transition-all"
+                />
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

@@ -4,20 +4,27 @@ import { mockProjects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import { ProjectDetailsClient } from "./project-details-client";
 
-// **CORREÇÃO:** Definindo o tipo correto para as props da página.
-type PageProps = {
+// **CORREÇÃO 1:** Tipo explícito para as props da função generateMetadata.
+type MetadataProps = {
   params: {
     slug: string;
   };
 };
 
-// Função que busca os dados no servidor
+// **CORREÇÃO 2:** Tipo explícito para as props do componente da Página.
+type PageComponentProps = {
+  params: {
+    slug: string;
+  };
+};
+
+// Função que busca os dados no servidor (sem alterações)
 const getProjectBySlug = (slug: string) => {
   return mockProjects.find((project) => project.slug === slug);
 };
 
-// Gera os metadados para SEO (título da aba, etc.)
-export async function generateMetadata({ params }: PageProps) {
+// Gera os metadados para SEO, usando o tipo 'MetadataProps'
+export async function generateMetadata({ params }: MetadataProps) {
   const project = getProjectBySlug(params.slug);
   if (!project) {
     return { title: "Projeto não encontrado" };
@@ -28,8 +35,8 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-// A página do servidor
-export default function ProjectPage({ params }: PageProps) {
+// A página do servidor, usando o tipo 'PageComponentProps'
+export default function ProjectPage({ params }: PageComponentProps) {
   const project = getProjectBySlug(params.slug);
 
   if (!project) {

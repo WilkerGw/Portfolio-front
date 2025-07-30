@@ -1,13 +1,27 @@
+// src/app/layout.tsx
+
 "use client";
 import "./globals.css";
-import { Inter } from "next/font/google"; 
+// **CORREÇÃO:** Importando ambas as fontes com next/font
+import { Inter, Gowun_Batang } from "next/font/google"; 
 
 import { LoadingProvider, useLoading } from "@/context/LoadingContext";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 
+// Configuração da fonte Inter
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-inter", // Cria uma variável CSS para a fonte
+});
+
+// **CORREÇÃO:** Configuração da fonte Special Gothic via next/font.
+// OBS: "Special Gothic" não está no Google Fonts, então usei um substituto como exemplo.
+// Se você tiver o arquivo da fonte (.woff2, .ttf), podemos configurá-la localmente.
+// Por enquanto, usei Gowun_Batang como placeholder.
+const specialGothic = Gowun_Batang({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-special-gothic", // Cria uma variável CSS
 });
 
 function GlobalLoadingSpinner() {
@@ -21,16 +35,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="pt-br">
+    // **CORREÇÃO:** Aplicando as variáveis das fontes na tag <html>
+    <html lang="pt-br" className={`${inter.variable} ${specialGothic.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet"/>
+        {/* As tags de <link> para fontes foram removidas, 
+            pois o next/font já cuida disso de forma otimizada. */}
       </head>
       <body>
         <LoadingProvider>

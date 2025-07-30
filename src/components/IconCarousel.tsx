@@ -1,11 +1,12 @@
+// src/components/IconCarousel.tsx
+
 'use client';
 
-import React, { useEffect } from 'react';
-
-import { FaReact, FaNodeJs, FaVuejs, FaFigma, FaHtml5  } from 'react-icons/fa';
-import { SiTailwindcss, SiJavascript, SiVercel  } from 'react-icons/si';
+import React from 'react';
+// **CORREÇÃO:** Removidos os ícones não utilizados (FaVuejs, FaFigma, FaHtml5).
+import { FaReact, FaNodeJs } from 'react-icons/fa';
+import { SiTailwindcss, SiJavascript, SiVercel } from 'react-icons/si';
 import { RiNextjsLine } from "react-icons/ri";
-
 
 const icons = [
     {
@@ -36,7 +37,7 @@ const icons = [
         id: 5,
         title: "Next.js",
         color: "hover:text-gray-100",
-        component: <RiNextjsLine  />
+        component: <RiNextjsLine />
     },
     {
         id: 6,
@@ -47,35 +48,20 @@ const icons = [
 ];
 
 const IconCarousel = () => {
-    useEffect(() => {
-        const css = `
-            @keyframes slide {
-                from { transform: translateX(0); }
-                to { transform: translateX(-100%); }
-            }
-            .animate-slide { animation: slide 40s linear infinite; }
-            .animate-slide:hover { animation-play-state: paused; }
-        `;
-        const style = document.createElement('style');
-        style.id = 'carousel-animation';
-        
-        if (!document.getElementById('carousel-animation')) {
-            style.appendChild(document.createTextNode(css));
-            document.head.appendChild(style);
-        }
-
-        return () => {
-            const styleTag = document.getElementById('carousel-animation');
-            if (styleTag) {
-
-            }
-        };
-    }, []);
-
+    // **CORREÇÃO:** O código `useEffect` foi removido para uma melhor prática,
+    // já que a animação foi movida para o arquivo globals.css.
+    
     const renderIcons = () =>
         icons.map((icon) => (
-            <div key={icon.id} className={`mx-8 text-gray-500 ${icon.color} transition-colors text-6xl`}>
-                {icon.component}
+            <div key={icon.id} className="flex-shrink-0 mx-8">
+                <div
+                  className={`
+                    aurora-text bg-clip-text text-transparent
+                    text-6xl ${icon.color} transition-colors duration-300
+                  `}
+                >
+                  {icon.component}
+                </div>
             </div>
         ));
 
@@ -84,10 +70,10 @@ const IconCarousel = () => {
             <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent z-10"></div>
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black to-transparent z-10"></div>
             <div className="flex animate-slide">
-                <div className="hidden md:flex flex-shrink-0 items-center justify-around w-full">
+                <div className="flex flex-shrink-0 items-center justify-around">
                     {renderIcons()}
                 </div>
-                <div className="flex-shrink-0 flex items-center justify-around w-full" aria-hidden="true">
+                <div className="flex flex-shrink-0 items-center justify-around" aria-hidden="true">
                     {renderIcons()}
                 </div>
             </div>

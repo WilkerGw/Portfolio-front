@@ -1,8 +1,10 @@
 // src/app/admin-upload/page.tsx
+
 'use client';
 
 import type { PutBlobResult } from '@vercel/blob';
 import { useState, useRef } from 'react';
+import Image from 'next/image'; // **CORREÇÃO:** Importando o componente Image.
 
 export default function AdminUploadPage() {
   const inputFileRef = useRef<HTMLInputElement>(null);
@@ -10,7 +12,6 @@ export default function AdminUploadPage() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    // ... (O código da função handleSubmit continua exatamente o mesmo)
     event.preventDefault();
     setIsLoading(true);
 
@@ -52,7 +53,6 @@ export default function AdminUploadPage() {
               ref={inputFileRef}
               type="file"
               required
-              // AQUI ESTÁ A MUDANÇA: agora aceita imagens e vídeos!
               accept="image/*,video/*"
               className="block w-full text-sm text-gray-500
                 file:mr-4 file:py-2 file:px-4
@@ -74,7 +74,6 @@ export default function AdminUploadPage() {
           </form>
 
           {blob && (
-            // ... (A seção de resultado continua exatamente a mesma)
             <div className="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
               <h2 className="text-lg font-semibold text-green-600">
                 ✅ Upload Concluído!
@@ -89,11 +88,17 @@ export default function AdminUploadPage() {
                 className="mt-2 w-full p-2 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 onFocus={(e) => e.target.select()}
               />
-              {/* O preview funcionará para imagens também! */}
               <div className="mt-4">
                 <p className="text-sm font-medium text-gray-700">Preview:</p>
-                {blob.pathname.match(/\.(jpeg|jpg|gif|png)$/) != null ? (
-                   <img src={blob.url} alt="Preview" width="300" className="mt-2 rounded-md" />
+                {/* **CORREÇÃO:** Usando <Image /> para imagens e mantendo <video> para vídeos */}
+                {blob.pathname.match(/\.(jpeg|jpg|gif|png|webp)$/) != null ? (
+                   <Image 
+                      src={blob.url} 
+                      alt="Preview do Upload" 
+                      width={300} 
+                      height={200}
+                      className="mt-2 rounded-md object-cover" 
+                    />
                 ) : (
                    <video src={blob.url} controls width="300" className="mt-2 rounded-md" />
                 )}

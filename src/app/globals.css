@@ -100,3 +100,21 @@ body{
   /* A animação 'aurora-effect' que já definimos antes é reutilizada aqui */
   animation: aurora-effect 16s ease-in-out infinite;
 }
+
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slide {
+  animation: slide 40s linear infinite;
+}
+
+.animate-slide:hover {
+  animation-play-state: paused;
+}

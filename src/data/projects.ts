@@ -34,11 +34,12 @@ export const mockProjects: Project[] = [
     repositoryUrl: "https://github.com/WilkerGw/Site-Vizz",
     // IMAGENS PARA O MODAL (substitua pelas suas)
     images: [
-        "https://via.placeholder.com/1280x720.png/111/fff?text=Imagem+1",
-        "https://via.placeholder.com/1280x720.png/222/fff?text=Imagem+2",
-        "https://via.placeholder.com/1280x720.png/333/fff?text=Imagem+3",
-        "https://via.placeholder.com/1280x720.png/444/fff?text=Imagem+4",
-        "https://via.placeholder.com/1280x720.png/555/fff?text=Imagem+5",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20175156-CmZJOHRXWyRhaSnFQIlVxZnJ9Lz5HI.png",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20175207-f01s7Bgb0wzpkTNUqmHuSZ76d0bp1x.png",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20175220-2wUsMymLfGPP6MtvanPcykXe8119ll.png",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20175241-DifvKlSZ1RcdpsVVlyhQ1HG1yzSJPA.png",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20175254-px5DzUSxiUrADLhx1YUCe9FZ4cvELB.png",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20175310-cEHh3taUx4LomIcZSC85QhcTI1g76k.png",
     ],
   },
   {
@@ -51,9 +52,13 @@ export const mockProjects: Project[] = [
     repositoryUrl: "https://github.com/WilkerGw/Imobiliaria-site",
     // IMAGENS PARA O MODAL (substitua pelas suas)
     images: [
-        "https://via.placeholder.com/1280x720.png/111/fff?text=Imagem+1",
-        "https://via.placeholder.com/1280x720.png/222/fff?text=Imagem+2",
-        "https://via.placeholder.com/1280x720.png/333/fff?text=Imagem+3",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20181146-Q688h6xccNnMSmYrGBJyGU0fOGJ2ru.png",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20181206-WNKRf8Xz13oWLFy6kgKg9Q7WvLhBDP.png",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20181219-NyEevpG1uYdqFOf2aW0Tihlh0oA9ng.png",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20181242-WazlkLIv5j8XN7gvKabEnrLQS8RCVr.png",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20181255-tTvk2lqUOtN7LhhFs1vlOIciZ6O2rP.png",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20181315-T08IDb3HwFgwuba9Pt6ZdWiN5jx0cV.png",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20181326-mxSGAPnavZqVQlRc2QH9YKulAX4tjO.png",
     ],
   },
   {
@@ -77,8 +82,8 @@ export const mockProjects: Project[] = [
     repositoryUrl: "https://github.com/WilkerGw/Inaugura-o-Bar",
     // IMAGENS PARA O MODAL (substitua pelas suas)
     images: [
-        "https://via.placeholder.com/1280x720.png/111/fff?text=Imagem+1",
-        "https://via.placeholder.com/1280x720.png/222/fff?text=Imagem+2",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20182222-aO4z4bcHH5RU537ZTnfuBQFWHkcK8b.png",
+        "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/Captura%20de%20tela%202025-07-30%20182235-5yZNIxrCH4X1PWav0vFPeuMreCUsLf.png",
     ],
   },
 ];

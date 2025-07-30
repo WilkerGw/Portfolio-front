@@ -2,16 +2,62 @@
 
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
-import type { Project } from '@/data/projects'; // Importando o tipo
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import type { Project } from '@/data/projects';
 
 type ProjectModalProps = {
   project: Project | null;
   onClose: () => void;
 };
 
+const variants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 1000 : -1000,
+    opacity: 0,
+  }),
+  center: {
+    zIndex: 1,
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => ({
+    zIndex: 0,
+    x: direction < 0 ? 1000 : -1000,
+    opacity: 0,
+  }),
+};
+
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Reinicia o índice quando um novo projeto é selecionado
+  useEffect(() => {
+    if (project) {
+      setCurrentIndex(0);
+    }
+  }, [project]);
+
+  if (!project) {
+    return null; // Não renderiza nada se não houver projeto
+  }
+
+  const mediaItems = [project.ProjectVideo, ...(project.images || [])];
+  const hasMultipleItems = mediaItems.length > 1;
+
+  const paginate = (newDirection: number) => {
+    let newIndex = currentIndex + newDirection;
+    if (newIndex < 0) {
+      newIndex = mediaItems.length - 1; // Volta para o final
+    } else if (newIndex >= mediaItems.length) {
+      newIndex = 0; // Volta para o início
+    }
+    setCurrentIndex(newIndex);
+  };
+
+  const isVideo = (item: string) => item.endsWith('.mp4');
+
   return (
     <AnimatePresence>
       {project && (
@@ -19,67 +65,92 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
-          onClick={onClose} // Fecha o modal ao clicar no fundo
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
+          onClick={onClose}
         >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="relative w-full max-w-4xl h-[90vh] bg-gray-900/50 backdrop-blur-lg rounded-xl shadow-lg shadow-green-500/20 overflow-y-auto"
-            onClick={(e) => e.stopPropagation()} // Evita que o clique dentro do modal o feche
+          {/* Botão de Fechar Superior */}
+          <button
+            onClick={onClose}
+            className="absolute top-5 right-5 z-20 p-3 text-gray-300 bg-black/50 rounded-full hover:bg-white hover:text-black transition-colors"
+            aria-label="Fechar modal"
           >
-            {/* Botão de Fechar */}
+            <X size={28} />
+          </button>
+
+          {/* Botão de Navegação: Anterior */}
+          {hasMultipleItems && (
             <button
-              onClick={onClose}
-              className="absolute top-4 right-4 z-20 p-2 text-gray-400 bg-gray-800/50 rounded-full hover:bg-gray-700 hover:text-white transition-colors"
-              aria-label="Fechar modal"
+              onClick={(e) => {
+                e.stopPropagation();
+                paginate(-1);
+              }}
+              className="absolute left-5 top-1/2 -translate-y-1/2 z-20 p-3 text-gray-300 bg-black/50 rounded-full hover:bg-white hover:text-black transition-colors"
+              aria-label="Anterior"
             >
-              <X size={24} />
+              <ChevronLeft size={32} />
             </button>
+          )}
 
-            {/* Conteúdo do Modal */}
-            <div className="p-4 md:p-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                {project.title}
-              </h2>
+          {/* Container do Media (Vídeo ou Imagem) */}
+          <div
+            className="relative w-full h-full flex items-center justify-center overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <AnimatePresence initial={false} custom={1}>
+              <motion.div
+                key={currentIndex}
+                custom={1}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: 'spring', stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 },
+                }}
+                className="absolute w-full h-full flex items-center justify-center"
+              >
+                {isVideo(mediaItems[currentIndex]) ? (
+                  <video
+                    src={mediaItems[currentIndex]}
+                    controls
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="max-w-full max-h-full object-contain"
+                  />
+                ) : (
+                  <img
+                    src={mediaItems[currentIndex]}
+                    alt={`${project.title} - Mídia ${currentIndex + 1}`}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-              {/* Vídeo Principal */}
-              <div className="mb-6 rounded-lg overflow-hidden">
-                <video
-                  src={project.ProjectVideo}
-                  controls
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-auto object-cover aspect-video bg-black"
-                />
-              </div>
+           {/* Botão de Navegação: Próximo */}
+           {hasMultipleItems && (
+            <button
+                onClick={(e) => {
+                    e.stopPropagation();
+                    paginate(1);
+                }}
+                className="absolute right-5 top-1/2 -translate-y-1/2 z-20 p-3 text-gray-300 bg-black/50 rounded-full hover:bg-white hover:text-black transition-colors"
+                aria-label="Próximo"
+            >
+                <ChevronRight size={32} />
+            </button>
+           )}
 
-              {/* Galeria de Imagens */}
-              {project.images && project.images.length > 0 && (
-                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {project.images.map((img, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 + index * 0.1 }}
-                        className="rounded-lg overflow-hidden"
-                      >
-                         <img
-                            src={img}
-                            alt={`${project.title} - Imagem ${index + 1}`}
-                            className="w-full h-full object-cover aspect-video"
-                         />
-                      </motion.div>
-                    ))}
-                 </div>
-              )}
-            </div>
-          </motion.div>
+            {/* Contador de Mídia */}
+            {hasMultipleItems && (
+                <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 px-3 py-1 text-white bg-black/50 rounded-full text-sm">
+                    {currentIndex + 1} / {mediaItems.length}
+                </div>
+            )}
         </motion.div>
       )}
     </AnimatePresence>

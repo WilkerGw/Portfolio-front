@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import { FaReact, FaNodeJs, FaVuejs, FaFigma, FaHtml5  } from 'react-icons/fa';
-import { SiTailwindcss, SiJavascript, SiVercel  } from 'react-icons/si';
+// As importações de ícones permanecem as mesmas
+import { FaReact, FaNodeJs } from 'react-icons/fa';
+import { SiTailwindcss, SiJavascript, SiVercel } from 'react-icons/si';
 import { RiNextjsLine } from "react-icons/ri";
 
 
@@ -36,7 +37,7 @@ const icons = [
         id: 5,
         title: "Next.js",
         color: "hover:text-gray-100",
-        component: <RiNextjsLine  />
+        component: <RiNextjsLine />
     },
     {
         id: 6,
@@ -47,31 +48,7 @@ const icons = [
 ];
 
 const IconCarousel = () => {
-    useEffect(() => {
-        const css = `
-            @keyframes slide {
-                from { transform: translateX(0); }
-                to { transform: translateX(-100%); }
-            }
-            .animate-slide { animation: slide 40s linear infinite; }
-            .animate-slide:hover { animation-play-state: paused; }
-        `;
-        const style = document.createElement('style');
-        style.id = 'carousel-animation';
-        
-        if (!document.getElementById('carousel-animation')) {
-            style.appendChild(document.createTextNode(css));
-            document.head.appendChild(style);
-        }
-
-        return () => {
-            const styleTag = document.getElementById('carousel-animation');
-            if (styleTag) {
-
-            }
-        };
-    }, []);
-
+    // A função que renderiza os ícones foi revertida para o estilo original.
     const renderIcons = () =>
         icons.map((icon) => (
             <div key={icon.id} className={`mx-8 text-gray-500 ${icon.color} transition-colors text-6xl`}>
@@ -80,14 +57,18 @@ const IconCarousel = () => {
         ));
 
     return (
-        <div className="relative w-full overflow-hidden bg-transparent py-8 shadow-lg rounded-xl bottom-0">
+        <div className="relative w-full overflow-hidden bg-transparent py-8 bottom-0">
+            {/* As sombras nas laterais (fade out) continuam as mesmas */}
             <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent z-10"></div>
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black to-transparent z-10"></div>
+
+            {/* O container da animação usa a classe 'animate-slide' que está no globals.css */}
             <div className="flex animate-slide">
-                <div className="hidden md:flex flex-shrink-0 items-center justify-around w-full">
+                {/* A estrutura de duplicação para o efeito de loop infinito foi restaurada */}
+                <div className="flex flex-shrink-0 items-center justify-around w-full">
                     {renderIcons()}
                 </div>
-                <div className="flex-shrink-0 flex items-center justify-around w-full" aria-hidden="true">
+                <div className="flex flex-shrink-0 items-center justify-around w-full" aria-hidden="true">
                     {renderIcons()}
                 </div>
             </div>

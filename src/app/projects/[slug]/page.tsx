@@ -1,24 +1,22 @@
-// src/app/projects/[slug]/page.tsx
-
 import { mockProjects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import { ProjectDetailsClient } from "./project-details-client";
 
-// **CORREÇÃO 1:** Tipo explícito para as props da função generateMetadata.
+// Tipo explícito para as props da função generateMetadata
 type MetadataProps = {
   params: {
     slug: string;
   };
 };
 
-// **CORREÇÃO 2:** Tipo explícito para as props do componente da Página.
+// Tipo explícito para as props do componente da Página
 type PageComponentProps = {
   params: {
     slug: string;
   };
 };
 
-// Função que busca os dados no servidor (sem alterações)
+// Função que busca os dados no servidor
 const getProjectBySlug = (slug: string) => {
   return mockProjects.find((project) => project.slug === slug);
 };
@@ -43,6 +41,5 @@ export default function ProjectPage({ params }: PageComponentProps) {
     notFound();
   }
 
-  // Renderiza o componente de cliente, passando os dados do projeto
   return <ProjectDetailsClient project={project} />;
 }

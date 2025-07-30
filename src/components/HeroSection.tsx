@@ -5,10 +5,11 @@ import { Github, Linkedin } from "lucide-react";
 import IconCarousel from "./IconCarousel";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import { GrProjects } from "react-icons/gr";
-import { motion } from "framer-motion";
+// CORREÇÃO 1: Importar o tipo 'Variants'
+import { motion, Variants } from "framer-motion";
 
-// As variantes de animação permanecem as mesmas
-const buttonContainerVariants = {
+// CORREÇÃO 2: Adicionar a tipagem explícita ': Variants'
+const buttonContainerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -18,7 +19,8 @@ const buttonContainerVariants = {
   },
 };
 
-const buttonItemVariants = {
+// CORREÇÃO 3: Adicionar a tipagem explícita ': Variants'
+const buttonItemVariants: Variants = {
   hidden: { opacity: 0, x: -50 },
   visible: {
     opacity: 1,
@@ -64,7 +66,7 @@ export function HeroSection() {
             <h1 className="text-4xl md:text-5xl lg:text-5xl text-gray-300 font-special-gothic">
               WILKER MARTINS DESENVOLVEDOR WEB
             </h1>
-            <p className="mt-4 text-base md:text-lg lg:text-xl text-muted-foreground text-gray-400">
+            <p className="mt-4 text-base md:text-lg lg:text-xl text-muted-foreground text-gray-500/50">
               Desenvolvimento de Websites e Aplicações Web.
             </p>
           </motion.div>
@@ -75,7 +77,6 @@ export function HeroSection() {
             initial="hidden"
             animate="visible"
           >
-            {/* MUDANÇA: Aplicando a classe 'aurora-button' */}
             <motion.div variants={buttonItemVariants}>
               <Link
                 href="#projetos"
@@ -97,7 +98,6 @@ export function HeroSection() {
               </a>
             </motion.div>
             
-            {/* MUDANÇA: A animação 'aurora-button' é o próprio fundo! */}
             <motion.div variants={buttonItemVariants}>
               <a
                 href="https://github.com/WilkerGw"

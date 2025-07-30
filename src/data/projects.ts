@@ -1,5 +1,4 @@
-// Remova todas as importações de 'react-icons' e 'react' deste arquivo.
-// Elas não são mais necessárias aqui.
+// src/data/projects.ts
 
 export type Project = {
   slug: string;
@@ -9,9 +8,10 @@ export type Project = {
   projectUrl: string;
   ProjectVideo: string;
   repositoryUrl: string;
+  // NOVO CAMPO: Adicione um array para as imagens do modal
+  images: string[];
 };
 
-// A lista de projetos continua igual, mas o arquivo fica mais limpo.
 export const mockProjects: Project[] = [
   {
     slug: "site-institucional-oticas-vizz",
@@ -32,6 +32,14 @@ export const mockProjects: Project[] = [
     projectUrl: "https://oticasvizz.com.br",
     ProjectVideo: "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/vizz-video.mp4",
     repositoryUrl: "https://github.com/WilkerGw/Site-Vizz",
+    // IMAGENS PARA O MODAL (substitua pelas suas)
+    images: [
+        "https://via.placeholder.com/1280x720.png/111/fff?text=Imagem+1",
+        "https://via.placeholder.com/1280x720.png/222/fff?text=Imagem+2",
+        "https://via.placeholder.com/1280x720.png/333/fff?text=Imagem+3",
+        "https://via.placeholder.com/1280x720.png/444/fff?text=Imagem+4",
+        "https://via.placeholder.com/1280x720.png/555/fff?text=Imagem+5",
+    ],
   },
   {
     slug: "site-imobiliaria",
@@ -41,6 +49,12 @@ export const mockProjects: Project[] = [
     projectUrl: "https://github.com/WilkerGw/Imobiliaria-site",
     ProjectVideo: "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/imobiliaria-video-huBKDcqtDMt6AWoTbut7yF8nLScwFh.mp4",
     repositoryUrl: "https://github.com/WilkerGw/Imobiliaria-site",
+    // IMAGENS PARA O MODAL (substitua pelas suas)
+    images: [
+        "https://via.placeholder.com/1280x720.png/111/fff?text=Imagem+1",
+        "https://via.placeholder.com/1280x720.png/222/fff?text=Imagem+2",
+        "https://via.placeholder.com/1280x720.png/333/fff?text=Imagem+3",
+    ],
   },
   {
     slug: "landing-page-bar",
@@ -61,5 +75,10 @@ export const mockProjects: Project[] = [
     projectUrl: "https://github.com/WilkerGw/Inaugura-o-Bar",
     ProjectVideo: "https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bar-video.mp4",
     repositoryUrl: "https://github.com/WilkerGw/Inaugura-o-Bar",
+    // IMAGENS PARA O MODAL (substitua pelas suas)
+    images: [
+        "https://via.placeholder.com/1280x720.png/111/fff?text=Imagem+1",
+        "https://via.placeholder.com/1280x720.png/222/fff?text=Imagem+2",
+    ],
   },
 ];

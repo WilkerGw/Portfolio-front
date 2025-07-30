@@ -1,4 +1,4 @@
-'use client'; // 👈 PASSO 1: Adicione esta linha no topo do arquivo
+'use client';
 
 import {
   SiTypescript,
@@ -21,7 +21,8 @@ import {
   SiPostgresql,
 } from "react-icons/si";
 import Image from "next/image";
-import { motion } from "framer-motion";
+// CORREÇÃO 1: Importar o tipo 'Variants' junto com 'motion'
+import { motion, Variants } from "framer-motion";
 
 const icons = [
   { component: SiTypescript, title: "TypeScript" },
@@ -44,7 +45,8 @@ const icons = [
   { component: SiGimp, title: "Gimp" },
 ];
 
-const containerVariants = {
+// CORREÇÃO 2: Adicionar a tipagem ': Variants'
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -54,7 +56,8 @@ const containerVariants = {
   },
 };
 
-const iconVariants = {
+// CORREÇÃO 3: Adicionar a tipagem ': Variants' aqui também
+const iconVariants: Variants = {
   hidden: { x: -20, opacity: 0 },
   visible: {
     x: 0,

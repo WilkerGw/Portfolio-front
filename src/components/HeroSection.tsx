@@ -6,7 +6,6 @@ import IconCarousel from "./IconCarousel";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import { GrProjects } from "react-icons/gr";
 import { motion, Variants } from "framer-motion";
-// 1. Importe o componente Image do Next.js
 import Image from "next/image";
 
 const buttonContainerVariants: Variants = {
@@ -30,48 +29,42 @@ const buttonItemVariants: Variants = {
 
 export function HeroSection() {
   return (
-    <section className="relative w-screen h-screen flex flex-col justify-center items-center lg:justify-start lg:items-start overflow-hidden bg-green-950">
-      {/* --- INÍCIO DA CORREÇÃO --- */}
-      {/* 2. Substituímos os backgrounds CSS pelo componente Image */}
+    // 1. CORREÇÃO: Trocamos 'justify-center' por 'justify-start' para alinhar o conteúdo ao topo
+    //    e removemos 'lg:justify-start' por ser agora o padrão.
+    <section className="relative w-screen h-screen flex flex-col justify-start items-center lg:items-start overflow-hidden bg-green-950">
       <div className="absolute inset-0 z-0">
-        {/* Imagem para Mobile */}
         <Image
           src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-mobile-VsdcgLFCNwqNmehsYjGkfzQzEM3E5W.WebP"
           alt="Background de dispositivos móveis"
           fill
-          priority // 3. 'priority' diz ao Next.js para pré-carregar esta imagem (CRUCIAL para o LCP)
-          sizes="(max-width: 767px) 100vw, 0vw" // 4. 'sizes' informa o browser sobre o tamanho da imagem
-          className="object-cover md:hidden" // Mostra apenas em mobile
-          quality={75} // Qualidade da imagem
+          priority 
+          sizes="(max-width: 767px) 100vw, 0vw"
+          className="object-cover md:hidden"
+          quality={75}
         />
-        {/* Imagem para Tablet */}
         <Image
           src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-tablet-QgRYdbWfqpTZShtSl7xVO4cdMeNyb7.WebP"
           alt="Background de tablet"
           fill
           priority
           sizes="(min-width: 768px) and (max-width: 1023px) 100vw, 0vw"
-          className="object-cover hidden md:block lg:hidden" // Mostra apenas em tablet
+          className="object-cover hidden md:block lg:hidden"
           quality={75}
         />
-        {/* Imagem para Desktop */}
         <Image
           src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-desktop-kD1k2Pt2kVdrR6KVHWpyOciEBseF9S.WebP"
           alt="Background de desktop"
           fill
           priority
           sizes="(min-width: 1024px) 100vw, 0vw"
-          className="object-cover hidden lg:block" // Mostra apenas em desktop
+          className="object-cover hidden lg:block"
           quality={75}
         />
-        {/* 5. Adicionamos um gradiente sobre as imagens para manter o efeito visual */}
         <div className="absolute inset-0 bg-gradient-to-b from-green-950/75 to-black"></div>
       </div>
-      {/* --- FIM DA CORREÇÃO --- */}
 
-
-      {/* O resto do seu conteúdo fica acima do background (z-10) */}
-      <div className="z-10 flex flex-col w-full px-4 lg:pt-10 lg:px-7">
+      {/* 2. CORREÇÃO: Adicionamos um padding-top (pt-28) para afastar o conteúdo do topo em ecrãs pequenos e médios */}
+      <div className="z-10 flex flex-col w-full px-4 pt-28 lg:pt-10 lg:px-7">
         <div className="flex w-full px-4 max-w-3xl flex-col items-center justify-start text-center lg:items-start lg:text-start gap-2">
           
           <motion.div
@@ -93,7 +86,6 @@ export function HeroSection() {
             initial="hidden"
             animate="visible"
           >
-            {/* ...seus botões aqui, sem alterações... */}
             <motion.div variants={buttonItemVariants}>
               <Link
                 href="#projetos"

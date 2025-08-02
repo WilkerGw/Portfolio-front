@@ -1,33 +1,47 @@
 // src/app/layout.tsx
 
-"use client";
+// A diretiva "use client" foi REMOVIDA daqui.
+
 import "./globals.css";
-// **CORREÇÃO:** Importando ambas as fontes com next/font
-import { Inter, Gowun_Batang } from "next/font/google"; 
+import type { Metadata } from "next";
+import { Inter, Gowun_Batang } from "next/font/google";
+// 1. Importamos nosso novo componente de cliente
+import { ClientLayout } from "@/components/ClientLayout";
 
-import { LoadingProvider, useLoading } from "@/context/LoadingContext";
-import { LoadingSpinner } from "@/components/LoadingSpinner";
+// Agora o metadata pode ser exportado sem problemas, pois este é um Componente de Servidor.
+export const metadata: Metadata = {
+  title: "Wilker Martins | Desenvolvedor Web",
+  description:
+    "Portfólio de Wilker Martins, desenvolvedor web especializado em Next.js, TypeScript e React. Veja meus projetos de websites, aplicações e mais.",
+  authors: [{ name: "Wilker Martins", url: "https://www.linkedin.com/in/wilker-martins-22238a370/" }],
+  keywords: [
+    "Desenvolvedor Web",
+    "Next.js",
+    "TypeScript",
+    "React.js",
+    "Tailwind CSS",
+    "Portfolio",
+    "Desenvolvimento de Sites",
+    "Programador",
+    "Freela",
+    "São Paulo",
+  ],
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://portfolio-front-tau-flax.vercel.app/",
+  },
+};
 
-// Configuração da fonte Inter
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter", // Cria uma variável CSS para a fonte
+  variable: "--font-inter",
 });
 
-// **CORREÇÃO:** Configuração da fonte Special Gothic via next/font.
-// OBS: "Special Gothic" não está no Google Fonts, então usei um substituto como exemplo.
-// Se você tiver o arquivo da fonte (.woff2, .ttf), podemos configurá-la localmente.
-// Por enquanto, usei Gowun_Batang como placeholder.
 const specialGothic = Gowun_Batang({
   weight: "400",
   subsets: ["latin"],
-  variable: "--font-special-gothic", // Cria uma variável CSS
+  variable: "--font-special-gothic",
 });
-
-function GlobalLoadingSpinner() {
-  const { isLoading } = useLoading();
-  return isLoading ? <LoadingSpinner /> : null;
-}
 
 export default function RootLayout({
   children,
@@ -35,17 +49,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // **CORREÇÃO:** Aplicando as variáveis das fontes na tag <html>
     <html lang="pt-br" className={`${inter.variable} ${specialGothic.variable}`}>
-      <head>
-        {/* As tags de <link> para fontes foram removidas, 
-            pois o next/font já cuida disso de forma otimizada. */}
-      </head>
+      <head />
       <body>
-        <LoadingProvider>
-          {children}
-          <GlobalLoadingSpinner />
-        </LoadingProvider>
+        {/* 2. Usamos o ClientLayout para encapsular a lógica de cliente */}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

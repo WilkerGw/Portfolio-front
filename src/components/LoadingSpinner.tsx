@@ -1,22 +1,34 @@
-import { LoaderCircle } from "lucide-react";
+// src/components/LoadingSpinner.tsx
 
 export function LoadingSpinner() {
   return (
-    // O container principal que cobre toda a tela
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-      {/* - fixed: Posição fixa em relação à janela do navegador.
-        - inset-0: Cobre toda a tela (top: 0, right: 0, bottom: 0, left: 0).
-        - z-50: Garante que ele fique acima de outros conteúdos.
-        - flex items-center justify-center: Centraliza o conteúdo (a espiral).
-        - bg-black/70: Fundo preto com 70% de opacidade (o filtro escuro).
-        - backdrop-blur-sm: Aplica um leve desfoque ao conteúdo atrás dele.
+    // O container principal que cobre toda a tela e escurece o fundo
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm">
+      {/* Container da animação das barras.
+        - 'gap-2' cria um espaço entre cada barra.
       */}
-      <LoaderCircle className="h-16 w-16 animate-spin text-green-500" />
-      {/*
-        - h-16 w-16: Define o tamanho do ícone.
-        - animate-spin: Animação de rotação nativa do Tailwind CSS.
-        - text-green-500: Define a cor da espiral para verde.
-      */}
+      <div className="flex items-center justify-center gap-2">
+        {/* Cada div é uma barra da animação. */}
+        <div className="h-12 w-2 animate-wave rounded-full bg-green-400"></div>
+        <div
+          className="h-12 w-2 animate-wave rounded-full bg-green-400"
+          // A propriedade 'animationDelay' cria o efeito de onda, fazendo cada barra
+          // começar sua animação um pouco depois da anterior.
+          style={{ animationDelay: "0.1s" }}
+        ></div>
+        <div
+          className="h-12 w-2 animate-wave rounded-full bg-green-400"
+          style={{ animationDelay: "0.2s" }}
+        ></div>
+        <div
+          className="h-12 w-2 animate-wave rounded-full bg-green-400"
+          style={{ animationDelay: "0.3s" }}
+        ></div>
+        <div
+          className="h-12 w-2 animate-wave rounded-full bg-green-400"
+          style={{ animationDelay: "0.4s" }}
+        ></div>
+      </div>
     </div>
   );
 }

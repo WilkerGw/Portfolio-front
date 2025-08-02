@@ -118,3 +118,22 @@ body{
 .animate-slide:hover {
   animation-play-state: paused;
 }
+
+@keyframes wave {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}
+
+/*
+  A classe 'animate-wave' aplica os keyframes que definimos.
+  - A animação dura 1.2 segundos.
+  - 'infinite' faz com que ela se repita continuamente.
+  - 'ease-in-out' suaviza o início e o fim da animação.
+*/
+.animate-wave {
+  animation: wave 1.2s infinite ease-in-out;
+}

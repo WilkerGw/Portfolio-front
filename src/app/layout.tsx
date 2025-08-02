@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br" className={`${inter.variable} ${specialGothic.variable}`}>
+    <html lang="pt-br" className={`${inter.variable} ${specialGothic.variable} overflow-x-hidden`}>
       <head />
       <body>
         {/* 2. Usamos o ClientLayout para encapsular a lógica de cliente */}

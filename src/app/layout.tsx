@@ -1,18 +1,14 @@
 // src/app/layout.tsx
 
-// A diretiva "use client" foi REMOVIDA daqui.
-
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Gowun_Batang } from "next/font/google";
-// 1. Importamos nosso novo componente de cliente
 import { ClientLayout } from "@/components/ClientLayout";
 
-// Agora o metadata pode ser exportado sem problemas, pois este é um Componente de Servidor.
 export const metadata: Metadata = {
   title: "Wilker Martins | Desenvolvedor Web",
   description:
-    "Portfólio de Wilker Martins, desenvolvedor web especializado em Next.js, TypeScript e React. Veja meus projetos de websites, aplicações e mais.",
+    "Portfólio de Wilker Martins, desenvolvedor web especializado em Next.js, TypeScript e React. Veja os meus projetos de websites, aplicações e mais.",
   authors: [{ name: "Wilker Martins", url: "https://www.linkedin.com/in/wilker-martins-22238a370/" }],
   keywords: [
     "Desenvolvedor Web",
@@ -49,10 +45,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br" className={`${inter.variable} ${specialGothic.variable} overflow-x-hidden`}>
-      <head />
+    <html lang="pt-br" className={`${inter.variable} ${specialGothic.variable}`}>
+      <head>
+        {/* --- CORREÇÃO ADICIONADA AQUI --- */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body>
-        {/* 2. Usamos o ClientLayout para encapsular a lógica de cliente */}
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

@@ -1,8 +1,14 @@
+// src/app/page.tsx
+
 import "./globals.css";
-import { AboutSection } from "@/components/AboutSection";
 import { HeroSection } from "@/components/HeroSection";
-import { ProjectsSection } from "@/components/ProjectsSection";
-import ContactSection from "@/components/ContactSection";
+// 1. Importe 'dynamic' do Next.js
+import dynamic from 'next/dynamic';
+
+// 2. Carregue os componentes dinamicamente
+const AboutSection = dynamic(() => import('@/components/AboutSection').then(mod => mod.AboutSection));
+const ProjectsSection = dynamic(() => import('@/components/ProjectsSection').then(mod => mod.ProjectsSection));
+const ContactSection = dynamic(() => import('@/components/ContactSection'));
 
 export default function Home() {
   return (

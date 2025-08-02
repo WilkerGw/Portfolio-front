@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   SiTypescript,
@@ -88,6 +88,8 @@ export function AboutSection() {
             alt="avatar"
             width={300}
             height={300}
+            // Adicione a propriedade 'sizes'
+            sizes="(max-width: 1023px) 192px, 256px"
             className="rounded-full w-full h-full object-cover"
           />
         </motion.div>

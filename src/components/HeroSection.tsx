@@ -5,10 +5,10 @@ import { Github, Linkedin } from "lucide-react";
 import IconCarousel from "./IconCarousel";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import { GrProjects } from "react-icons/gr";
-// CORREÇÃO 1: Importar o tipo 'Variants'
 import { motion, Variants } from "framer-motion";
+// 1. Importe o componente Image do Next.js
+import Image from "next/image";
 
-// CORREÇÃO 2: Adicionar a tipagem explícita ': Variants'
 const buttonContainerVariants: Variants = {
   hidden: {},
   visible: {
@@ -19,7 +19,6 @@ const buttonContainerVariants: Variants = {
   },
 };
 
-// CORREÇÃO 3: Adicionar a tipagem explícita ': Variants'
 const buttonItemVariants: Variants = {
   hidden: { opacity: 0, x: -50 },
   visible: {
@@ -32,29 +31,46 @@ const buttonItemVariants: Variants = {
 export function HeroSection() {
   return (
     <section className="relative w-screen h-screen flex flex-col justify-center items-center lg:justify-start lg:items-start overflow-hidden bg-green-950">
-      {/* Backgrounds (sem alteração) */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat block md:hidden"
-        style={{
-          backgroundImage:
-            "linear-gradient(to bottom, rgba(5, 46, 22, 0.75), black), url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-mobile-VsdcgLFCNwqNmehsYjGkfzQzEM3E5W.WebP')",
-        }}
-      ></div>
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block lg:hidden"
-        style={{
-          backgroundImage:
-            "linear-gradient(to bottom, rgba(5, 46, 22, 0.75), black), url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-tablet-QgRYdbWfqpTZShtSl7xVO4cdMeNyb7.WebP')",
-        }}
-      ></div>
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden lg:block"
-        style={{
-          backgroundImage:
-            "linear-gradient(to bottom, rgba(5, 46, 22, 0.75), black), url('https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-desktop-kD1k2Pt2kVdrR6KVHWpyOciEBseF9S.WebP')",
-        }}
-      ></div>
+      {/* --- INÍCIO DA CORREÇÃO --- */}
+      {/* 2. Substituímos os backgrounds CSS pelo componente Image */}
+      <div className="absolute inset-0 z-0">
+        {/* Imagem para Mobile */}
+        <Image
+          src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-mobile-VsdcgLFCNwqNmehsYjGkfzQzEM3E5W.WebP"
+          alt="Background de dispositivos móveis"
+          fill
+          priority // 3. 'priority' diz ao Next.js para pré-carregar esta imagem (CRUCIAL para o LCP)
+          sizes="(max-width: 767px) 100vw, 0vw" // 4. 'sizes' informa o browser sobre o tamanho da imagem
+          className="object-cover md:hidden" // Mostra apenas em mobile
+          quality={75} // Qualidade da imagem
+        />
+        {/* Imagem para Tablet */}
+        <Image
+          src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-tablet-QgRYdbWfqpTZShtSl7xVO4cdMeNyb7.WebP"
+          alt="Background de tablet"
+          fill
+          priority
+          sizes="(min-width: 768px) and (max-width: 1023px) 100vw, 0vw"
+          className="object-cover hidden md:block lg:hidden" // Mostra apenas em tablet
+          quality={75}
+        />
+        {/* Imagem para Desktop */}
+        <Image
+          src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-desktop-kD1k2Pt2kVdrR6KVHWpyOciEBseF9S.WebP"
+          alt="Background de desktop"
+          fill
+          priority
+          sizes="(min-width: 1024px) 100vw, 0vw"
+          className="object-cover hidden lg:block" // Mostra apenas em desktop
+          quality={75}
+        />
+        {/* 5. Adicionamos um gradiente sobre as imagens para manter o efeito visual */}
+        <div className="absolute inset-0 bg-gradient-to-b from-green-950/75 to-black"></div>
+      </div>
+      {/* --- FIM DA CORREÇÃO --- */}
 
+
+      {/* O resto do seu conteúdo fica acima do background (z-10) */}
       <div className="z-10 flex flex-col w-full px-4 lg:pt-10 lg:px-7">
         <div className="flex w-full px-4 max-w-3xl flex-col items-center justify-start text-center lg:items-start lg:text-start gap-2">
           
@@ -77,6 +93,7 @@ export function HeroSection() {
             initial="hidden"
             animate="visible"
           >
+            {/* ...seus botões aqui, sem alterações... */}
             <motion.div variants={buttonItemVariants}>
               <Link
                 href="#projetos"

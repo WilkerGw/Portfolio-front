@@ -4,7 +4,7 @@
 
 import type { PutBlobResult } from '@vercel/blob';
 import { useState, useRef } from 'react';
-import Image from 'next/image'; // **CORREÇÃO:** Importando o componente Image.
+import Image from 'next/image';
 
 export default function AdminUploadPage() {
   const inputFileRef = useRef<HTMLInputElement>(null);
@@ -26,11 +26,19 @@ export default function AdminUploadPage() {
         `/api/upload?filename=${file.name}`,
         { method: 'POST', body: file }
       );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        // Parse para extrair a mensagem do JSON de erro
+        const errorJson = JSON.parse(errorText);
+        throw new Error(`Falha no upload. O servidor respondeu com: ${errorJson.message}`);
+      }
+
       const newBlob = (await response.json()) as PutBlobResult;
       setBlob(newBlob);
     } catch (error) {
       console.error("Erro no upload:", error);
-      alert("Ocorreu um erro. Tente novamente.");
+      alert(error instanceof Error ? error.message : "Ocorreu um erro desconhecido.");
     } finally {
       setIsLoading(false);
     }
@@ -90,7 +98,6 @@ export default function AdminUploadPage() {
               />
               <div className="mt-4">
                 <p className="text-sm font-medium text-gray-700">Preview:</p>
-                {/* **CORREÇÃO:** Usando <Image /> para imagens e mantendo <video> para vídeos */}
                 {blob.pathname.match(/\.(jpeg|jpg|gif|png|webp)$/) != null ? (
                    <Image 
                       src={blob.url} 

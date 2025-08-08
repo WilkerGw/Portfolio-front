@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    // Adicione a linha 'formats' abaixo
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
@@ -10,6 +9,14 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      // --- ADICIONE ESTE BLOCO NOVO AQUI ---
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/**',
+      },
+      // ------------------------------------
     ],
   },
 };

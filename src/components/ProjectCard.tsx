@@ -5,42 +5,31 @@
 import { TechIcon } from "./TechIcon";
 import { CiCirclePlus } from "react-icons/ci";
 import type { Project } from "@/data/projects";
-import Link from "next/link";
-// 1. Importamos o hook 'useLoading' do nosso contexto.
-import { useLoading } from "@/context/LoadingContext";
+import Image from "next/image"; // 1. Importe o componente Image do Next.js
 
 type ProjectCardProps = {
   project: Project;
+  onCardClick: (project: Project) => void;
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
-  const { slug, title, description, tags, ProjectVideo } = project;
-  // 2. Pegamos a função setIsLoading do contexto.
-  const { setIsLoading } = useLoading();
-
-  // 3. Criamos uma função para ser chamada quando o card for clicado.
-  const handleCardClick = () => {
-    // Ao clicar, definimos o estado de carregamento como 'true'.
-    // Isso fará nosso LoadingSpinner aparecer imediatamente.
-    setIsLoading(true);
-  };
+export function ProjectCard({ project, onCardClick }: ProjectCardProps) {
+  // 2. Desestruture a nova propriedade 'cardImage' e remova 'ProjectVideo' se não for mais usado aqui
+  const { title, description, tags, cardImage } = project;
 
   return (
-    <Link
-      href={`/projetos/${slug}`}
-      // 4. Adicionamos o evento onClick ao Link.
-      onClick={handleCardClick}
+    <div
+      onClick={() => onCardClick(project)}
       className="group flex flex-col overflow-hidden rounded-xl bg-white/10 backdrop-blur-md transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-primary/20 shadow shadow-green-100/20 cursor-pointer"
     >
       <div className="overflow-hidden">
-        <video
-          src={ProjectVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-auto object-cover aspect-video"
-        ></video>
+        {/* 3. Substitua o <video> pelo componente <Image> */}
+        <Image
+          src={cardImage}
+          alt={`Imagem do projeto ${title}`}
+          width={400} // Defina uma largura base
+          height={225} // Defina uma altura base para manter a proporção 16:9
+          className="w-full h-auto object-cover aspect-video transition-transform duration-300 group-hover:scale-105"
+        />
       </div>
       <div className="flex flex-1 flex-col p-4 md:p-6 text-white bg-gradient-to-b from-green-950 to-black">
         <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
@@ -64,6 +53,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <CiCirclePlus size={20} className="ml-2" />
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

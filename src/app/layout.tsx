@@ -31,12 +31,14 @@ export const metadata: Metadata = {
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: 'swap',
 });
 
 const specialGothic = Gowun_Batang({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-special-gothic",
+  display: 'swap',
 });
 
 export default function RootLayout({
@@ -47,7 +49,6 @@ export default function RootLayout({
   return (
     <html lang="pt-br" className={`${inter.variable} ${specialGothic.variable}`}>
       <head>
-        {/* --- CORREÇÃO ADICIONADA AQUI --- */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body>

@@ -21,7 +21,6 @@ import {
   SiPostgresql,
 } from "react-icons/si";
 import Image from "next/image";
-// CORREÇÃO 1: Importar o tipo 'Variants' junto com 'motion'
 import { motion, Variants } from "framer-motion";
 
 const icons = [
@@ -45,7 +44,6 @@ const icons = [
   { component: SiGimp, title: "Gimp" },
 ];
 
-// CORREÇÃO 2: Adicionar a tipagem ': Variants'
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -56,7 +54,6 @@ const containerVariants: Variants = {
   },
 };
 
-// CORREÇÃO 3: Adicionar a tipagem ': Variants' aqui também
 const iconVariants: Variants = {
   hidden: { x: -20, opacity: 0 },
   visible: {
@@ -84,11 +81,10 @@ export function AboutSection() {
           className="rounded-full overflow-hidden shadow shadow-green-100 w-48 h-48 lg:w-64 lg:h-64 mx-auto"
         >
           <Image
-            src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/wilker-A4Or5WDZVrH2NuX1BtMjQ60P3NYqZy.WebP"
+            src="https://res.cloudinary.com/djepel3xf/image/upload/v1754686315/wilker_flqpvj.webp"
             alt="avatar"
             width={300}
             height={300}
-            // Adicione a propriedade 'sizes'
             sizes="(max-width: 1023px) 192px, 256px"
             className="rounded-full w-full h-full object-cover"
           />

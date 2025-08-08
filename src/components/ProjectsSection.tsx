@@ -2,17 +2,14 @@
 
 'use client';
 
-// 1. Importe o useState e o ProjectModal
 import { useState } from "react";
 import { ProjectCard } from "./ProjectCard";
 import { mockProjects, type Project } from "@/data/projects";
-import { ProjectModal } from "./ProjectModal"; // Importe o modal
+import { ProjectModal } from "./ProjectModal";
 
 export function ProjectsSection() {
-  // 2. Crie estados para controlar o modal
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  // 3. Funções para abrir e fechar o modal
   const handleOpenModal = (project: Project) => {
     setSelectedProject(project);
   };
@@ -36,19 +33,18 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-8 md:grid-cols-2 lg:grid-cols-3 px-4">
+        {/* 👇 ALTERAÇÃO FEITA NESTA LINHA 👇 */}
+        <div className="mx-auto mt-12 grid max-w-6xl gap-8 md:grid-cols-2 px-4">
           {mockProjects.map((project) => (
             <ProjectCard
               key={project.slug}
               project={project}
-              // 4. Passe a função para abrir o modal para o card
               onCardClick={handleOpenModal}
             />
           ))}
         </div>
       </section>
 
-      {/* 5. Renderize o modal aqui, passando o projeto selecionado e a função para fechar */}
       <ProjectModal
         project={selectedProject}
         onClose={handleCloseModal}

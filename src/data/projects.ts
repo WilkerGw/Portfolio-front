@@ -27,8 +27,8 @@ export const mockProjects: Project[] = [
       "vercel",
       "render",
     ],
-    projectUrl: "https://github.com/WilkerGw/ERP-Otica", // Atualize se houver um link de projeto ao vivo
-    repositoryUrl: "https://github.com/WilkerGw/ERP-Otica",
+    projectUrl: "https://github.com/WilkerGw/ERP-FRONT", // Atualize se houver um link de projeto ao vivo
+    repositoryUrl: "https://github.com/WilkerGw/ERP-FRONT",
     cardImage: "https://res.cloudinary.com/djepel3xf/image/upload/v1754672498/ERP1_qoapez.webp",
     images: [
         "https://res.cloudinary.com/djepel3xf/image/upload/v1754672498/ERP1_qoapez.webp",
@@ -128,8 +128,8 @@ export const mockProjects: Project[] = [
       "vercel",
       "render",
     ],
-    projectUrl: "https://loja-tenis-gilt.vercel.app/",
-    repositoryUrl: "https://github.com/WilkerGw/Loja-Tenis",
+    projectUrl: "https://github.com/WilkerGw/loja-de-tenis",
+    repositoryUrl: "https://github.com/WilkerGw/loja-de-tenis",
     cardImage: "https://res.cloudinary.com/djepel3xf/image/upload/v1754671811/ESP1_vmmvs8.webp",
     images: [
         "https://res.cloudinary.com/djepel3xf/image/upload/v1754671811/ESP1_vmmvs8.webp",

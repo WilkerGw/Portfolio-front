@@ -29,12 +29,10 @@ const buttonItemVariants: Variants = {
 
 export function HeroSection() {
   return (
-    // 1. CORREÇÃO: Trocamos 'justify-center' por 'justify-start' para alinhar o conteúdo ao topo
-    //    e removemos 'lg:justify-start' por ser agora o padrão.
     <section className="relative w-screen h-screen flex flex-col justify-start items-center lg:items-start overflow-hidden bg-green-950">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-mobile-VsdcgLFCNwqNmehsYjGkfzQzEM3E5W.WebP"
+          src="https://res.cloudinary.com/djepel3xf/image/upload/v1754688010/bg-mobile_v55afa.webp"
           alt="Background de dispositivos móveis"
           fill
           priority 
@@ -43,7 +41,7 @@ export function HeroSection() {
           quality={75}
         />
         <Image
-          src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-tablet-QgRYdbWfqpTZShtSl7xVO4cdMeNyb7.WebP"
+          src="https://res.cloudinary.com/djepel3xf/image/upload/v1754687930/bg-tablet_f1l4ar.webp"
           alt="Background de tablet"
           fill
           priority
@@ -52,7 +50,7 @@ export function HeroSection() {
           quality={75}
         />
         <Image
-          src="https://lmkyii2kcbi12kxo.public.blob.vercel-storage.com/bg-desktop-kD1k2Pt2kVdrR6KVHWpyOciEBseF9S.WebP"
+          src="https://res.cloudinary.com/djepel3xf/image/upload/v1754687844/bg-desktop_pbi2wt.webp"
           alt="Background de desktop"
           fill
           priority
@@ -63,7 +61,6 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-green-950/75 to-black"></div>
       </div>
 
-      {/* 2. CORREÇÃO: Adicionamos um padding-top (pt-28) para afastar o conteúdo do topo em ecrãs pequenos e médios */}
       <div className="z-10 flex flex-col w-full px-4 pt-28 lg:pt-10 lg:px-7">
         <div className="flex w-full px-4 max-w-3xl flex-col items-center justify-start text-center lg:items-start lg:text-start gap-2">
           
@@ -138,7 +135,8 @@ export function HeroSection() {
         className="absolute bottom-0 w-full"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 1.0 }}
+        // A propriedade 'delay' foi removida da transição
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <IconCarousel />
       </motion.div>

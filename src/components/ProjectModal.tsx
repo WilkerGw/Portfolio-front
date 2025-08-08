@@ -32,7 +32,6 @@ const variants = {
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Reinicia o índice quando um novo projeto é selecionado
   useEffect(() => {
     if (project) {
       setCurrentIndex(0);
@@ -40,23 +39,24 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
   }, [project]);
 
   if (!project) {
-    return null; // Não renderiza nada se não houver projeto
+    return null;
   }
 
-  const mediaItems = [project.ProjectVideo, ...(project.images || [])];
-  const hasMultipleItems = mediaItems.length > 1;
+  // A galeria agora é composta apenas pelo array de imagens
+  const images = project.images || [];
+  const hasMultipleItems = images.length > 1;
 
   const paginate = (newDirection: number) => {
     let newIndex = currentIndex + newDirection;
     if (newIndex < 0) {
-      newIndex = mediaItems.length - 1; // Volta para o final
-    } else if (newIndex >= mediaItems.length) {
-      newIndex = 0; // Volta para o início
+      newIndex = images.length - 1;
+    } else if (newIndex >= images.length) {
+      newIndex = 0;
     }
     setCurrentIndex(newIndex);
   };
 
-  const isVideo = (item: string) => item.endsWith('.mp4');
+  // A função isVideo foi removida
 
   return (
     <AnimatePresence>
@@ -68,7 +68,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
           onClick={onClose}
         >
-          {/* Botão de Fechar Superior */}
           <button
             onClick={onClose}
             className="absolute top-5 right-5 z-20 p-3 text-gray-300 bg-black/50 rounded-full hover:bg-white hover:text-black transition-colors"
@@ -77,7 +76,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             <X size={28} />
           </button>
 
-          {/* Botão de Navegação: Anterior */}
           {hasMultipleItems && (
             <button
               onClick={(e) => {
@@ -91,7 +89,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </button>
           )}
 
-          {/* Container do Media (Vídeo ou Imagem) */}
           <div
             className="relative w-full h-full flex items-center justify-center overflow-hidden"
             onClick={(e) => e.stopPropagation()}
@@ -110,28 +107,16 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 }}
                 className="absolute w-full h-full flex items-center justify-center"
               >
-                {isVideo(mediaItems[currentIndex]) ? (
-                  <video
-                    src={mediaItems[currentIndex]}
-                    controls
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="max-w-full max-h-full object-contain"
-                  />
-                ) : (
-                  <img
-                    src={mediaItems[currentIndex]}
-                    alt={`${project.title} - Mídia ${currentIndex + 1}`}
-                    className="max-w-full max-h-full object-contain"
-                  />
-                )}
+                {/* O código agora renderiza apenas a tag <img> */}
+                <img
+                  src={images[currentIndex]}
+                  alt={`${project.title} - Imagem ${currentIndex + 1}`}
+                  className="max-w-full max-h-full object-contain"
+                />
               </motion.div>
             </AnimatePresence>
           </div>
 
-           {/* Botão de Navegação: Próximo */}
            {hasMultipleItems && (
             <button
                 onClick={(e) => {
@@ -145,10 +130,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </button>
            )}
 
-            {/* Contador de Mídia */}
             {hasMultipleItems && (
                 <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 px-3 py-1 text-white bg-black/50 rounded-full text-sm">
-                    {currentIndex + 1} / {mediaItems.length}
+                    {currentIndex + 1} / {images.length}
                 </div>
             )}
         </motion.div>
